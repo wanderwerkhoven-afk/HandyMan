@@ -54,7 +54,7 @@
     </header>
 
     <section class="build-project-head">
-      <img id="buildThumb" alt="">
+      <button class="build-hero" id="buildHero" type="button" aria-label="Enlarge project image"><img id="buildThumb" alt=""><span>⌕ View image</span></button>
       <div class="build-project-copy"><span class="build-id" id="buildId"></span><h1 id="buildTitle">Project</h1><p id="buildDescription"></p><div class="build-stats"><span>▥ <b id="buildDifficulty"></b></span><span>◷ <b>Guided build</b></span></div></div>
     </section>
 
@@ -111,6 +111,11 @@
     <button class="nav-item" data-page="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Profile</span></button>
   </nav>
   <div class="toast" id="toast" role="status"></div>
+  <dialog class="image-spotlight" id="imageSpotlight" aria-label="Project image preview">
+    <button class="spotlight-close" type="button" aria-label="Close image preview">×</button>
+    <img id="spotlightImage" alt="">
+    <p id="spotlightCaption"></p>
+  </dialog>
 </div>
 <script src="app.js"></script>
 </body></html>
