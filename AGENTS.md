@@ -105,3 +105,7 @@ Research output must retain clickable source URLs and per-project hero-image URL
 ## Responsive product policy
 
 HandyMan is one responsive product across phone, tablet and desktop. Mobile remains a critical workshop context, but desktop is not a phone mockup centered in a large browser window. Every new screen must define its information hierarchy and layout for narrow and wide viewports. Shared data, components, navigation semantics and interaction state stay canonical across breakpoints; presentation may adapt substantially when wider space improves usability. QA must check at minimum a narrow phone, tablet/intermediate width and a desktop viewport.
+
+## No horizontal ribbon policy
+
+Phone and tablet layouts must not rely on horizontally scrolling ribbons for primary categories, tabs, filters or build navigation. When all choices do not fit, use visible selection buttons in a wrapping/grid arrangement or an explicit selector control. Horizontal scrolling remains reserved for content where lateral browsing is intrinsically meaningful, never as a way to hide primary navigation choices.
