@@ -120,8 +120,33 @@ document.querySelector(".bottom-nav").addEventListener("click",e=>{
  if(b.dataset.page==="build"){openBuild();return}
  toast(b.querySelector("span").textContent+" is coming next.");
 });
-document.querySelector(".settings-list").addEventListener("click",e=>{const b=e.target.closest("button");if(b)toast(b.querySelector("b").textContent+" settings are coming next.")});
-document.querySelector("#editProfile").addEventListener("click",()=>toast("Profile editing is coming next."));
+const PROFILE_KEY="handyman-profile-v1";
+const defaultProfile={name:"Wander",role:"DIY builder & woodworking enthusiast",bio:"I love building useful things for my home and learning new skills along the way. Always up for the next project.",units:"Imperial (in)",notifications:true,skill:"Intermediate",appearance:"Light",avatar:""};
+let profile={...defaultProfile,...JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}")};
+const profileDialog=document.querySelector("#profileDialog"),profileDialogBody=document.querySelector("#profileDialogBody"),profileDialogSave=document.querySelector("#profileDialogSave");
+let profileAction=null;
+function persistProfile(){localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));renderProfile()}
+function renderProfile(){
+ document.querySelector("#profileName").textContent=profile.name;document.querySelector("#profileRole").textContent=profile.role;document.querySelector("#profileBio").textContent=profile.bio;
+ const avatar=document.querySelector("#profileAvatarPreview");avatar.textContent=profile.avatar?"":(profile.name.trim()[0]||"H").toUpperCase();avatar.style.backgroundImage=profile.avatar?'url("'+profile.avatar+'")':"";avatar.classList.toggle("has-image",!!profile.avatar);
+ const vals={units:profile.units,notifications:profile.notifications?"On":"Off",skill:profile.skill,appearance:profile.appearance};Object.entries(vals).forEach(([k,v])=>{const el=document.querySelector('[data-setting="'+k+'"] em');if(el)el.textContent=v});
+ document.documentElement.dataset.theme=profile.appearance.toLowerCase();
+}
+function openProfileDialog(type){profileAction=type;const title=document.querySelector("#profileDialogTitle"),kicker=document.querySelector("#profileDialogKicker");kicker.textContent="Profile settings";profileDialogSave.hidden=false;
+ if(type==="edit"){title.textContent="Edit profile";profileDialogBody.innerHTML='<label>Name<input id="pfName" maxlength="40" value="'+escapeHtml(profile.name)+'"></label><label>Profile line<input id="pfRole" maxlength="70" value="'+escapeHtml(profile.role)+'"></label><label>About you<textarea id="pfBio" maxlength="220" rows="4">'+escapeHtml(profile.bio)+'</textarea></label>'}
+ if(type==="units"){title.textContent="Measurement units";profileDialogBody.innerHTML='<div class="choice-grid"><label><input type="radio" name="pfUnits" value="Imperial (in)" '+(profile.units==="Imperial (in)"?"checked":"")+'><span><b>Imperial</b><small>Inches and feet</small></span></label><label><input type="radio" name="pfUnits" value="Metric (mm)" '+(profile.units==="Metric (mm)"?"checked":"")+'><span><b>Metric</b><small>Millimetres and centimetres</small></span></label></div>'}
+ if(type==="notifications"){title.textContent="Notifications";profileDialogBody.innerHTML='<label class="toggle-row"><span><b>Project notifications</b><small>Updates, tips and reminders</small></span><input id="pfNotifications" type="checkbox" '+(profile.notifications?"checked":"")+'></label>'}
+ if(type==="skill"){title.textContent="Skill level";profileDialogBody.innerHTML='<div class="choice-grid">'+["Beginner","Intermediate","Advanced"].map(v=>'<label><input type="radio" name="pfSkill" value="'+v+'" '+(profile.skill===v?"checked":"")+'><span><b>'+v+'</b><small>'+(v==="Beginner"?"New to woodworking":v==="Intermediate"?"Comfortable with common tools":"Experienced maker")+'</small></span></label>').join("")+'</div>'}
+ if(type==="appearance"){title.textContent="Appearance";profileDialogBody.innerHTML='<div class="choice-grid">'+["Light","Dark","System"].map(v=>'<label><input type="radio" name="pfAppearance" value="'+v+'" '+(profile.appearance===v?"checked":"")+'><span><b>'+v+'</b><small>'+(v==="System"?"Follow device preference":v+" HandyMan theme")+'</small></span></label>').join("")+'</div>'}
+ if(["downloads","favorites","help"].includes(type)){title.textContent=type==="downloads"?"Downloaded plans":type==="favorites"?"Favorites":"Help & Safety";profileDialogSave.hidden=true;profileDialogBody.innerHTML=type==="downloads"?'<div class="empty-panel"><b>Downloaded plans</b><p>Offline project plans will appear here as projects are downloaded.</p></div>':type==="favorites"?'<div class="empty-panel"><b>Your saved collection</b><p>Projects you heart are available from Saved. Tool and material favorites will appear here when those catalogs are connected.</p></div>':'<div class="help-list"><article><b>Workshop safety</b><p>Wear appropriate eye and hearing protection and follow manufacturer instructions for every tool.</p></article><article><b>Plan accuracy</b><p>HandyMan keeps unverified measurements explicit rather than inventing dimensions.</p></article></div>'}
+ profileDialog.showModal();
+}
+profileDialogSave.addEventListener("click",()=>{if(profileAction==="edit"){profile.name=document.querySelector("#pfName").value.trim()||defaultProfile.name;profile.role=document.querySelector("#pfRole").value.trim();profile.bio=document.querySelector("#pfBio").value.trim()}if(profileAction==="units")profile.units=document.querySelector('input[name="pfUnits"]:checked')?.value||profile.units;if(profileAction==="notifications")profile.notifications=document.querySelector("#pfNotifications").checked;if(profileAction==="skill")profile.skill=document.querySelector('input[name="pfSkill"]:checked')?.value||profile.skill;if(profileAction==="appearance")profile.appearance=document.querySelector('input[name="pfAppearance"]:checked')?.value||profile.appearance;persistProfile();profileDialog.close();toast("Saved")});
+document.querySelector(".settings-list").addEventListener("click",e=>{const b=e.target.closest("[data-setting]");if(b)openProfileDialog(b.dataset.setting)});
+document.querySelector("#editProfile").addEventListener("click",()=>openProfileDialog("edit"));
+document.querySelector("#editAvatar").addEventListener("click",()=>document.querySelector("#profileAvatarInput").click());
+document.querySelector("#profileAvatarInput").addEventListener("change",e=>{const file=e.target.files?.[0];if(!file)return;if(file.size>2*1024*1024){toast("Choose an image under 2 MB");return}const reader=new FileReader();reader.onload=()=>{profile.avatar=reader.result;persistProfile();toast("Profile photo updated")};reader.readAsDataURL(file)});
+renderProfile();
 document.querySelector("#seeAll").addEventListener("click",()=>toast("Projects page will be added next."));
 document.querySelector(".round-arrow").addEventListener("click",openBuild);
 document.querySelector(".build-back").addEventListener("click",closeBuild);
