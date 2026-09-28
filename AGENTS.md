@@ -34,6 +34,10 @@ The Orchestrator should:
 | Code Canonicalizer | Canonical code ownership, deduplication, dead-code cleanup |
 | Repository Steward | Folder structure, naming, file placement and safe moves |
 | Code Hygiene Review | Final duplicate/override/structure regression gate |
+| Project Research Lead | Finds trustworthy DIY projects and coordinates source-backed research |
+| Build Requirements Researcher | Verifies materials, tools, hardware, dimensions and build requirements |
+| Project Media & Licensing | Finds hero imagery and records provenance/reuse status |
+| Project Evidence Review | Validates evidence completeness and catalog readiness |
 
 ## Parallel execution rules
 
@@ -83,3 +87,17 @@ Every **Team HandyMan** command includes a maintenance pass. Iterative developme
 When multiple historical implementations solve the same behavior, preserve the latest intentional product behavior, fold it into the canonical owner, then remove superseded code. Do not keep duplicate CSS blocks, duplicate event handlers, duplicate state, or old/new file copies as a safety blanket.
 
 The Repository Steward may improve structure incrementally when the benefit is clear. Structural changes must update references atomically and must not break a working feature merely to satisfy an aesthetic folder preference.
+
+
+## Team HandyMan — Project Research workflow
+
+When asked to find or add new projects, run the research agents before project content is added to the product.
+
+Workflow:
+1. **Project Research Lead** discovers candidate projects using trustworthy sources and selects the primary source.
+2. **Build Requirements Researcher** independently extracts and verifies everything required to execute the build.
+3. **Project Media & Licensing** traces the hero image, direct image URL, creator and reuse/license status.
+4. **Project Evidence Review** checks evidence and returns RESEARCH READY, CATALOG READY or HOLD.
+5. Only CATALOG READY data may be presented internally as verified build data. Unknowns remain explicit; they are never filled by invention.
+
+Research output must retain clickable source URLs and per-project hero-image URLs/provenance so the product team can audit where content came from.
