@@ -109,3 +109,12 @@ HandyMan is one responsive product across phone, tablet and desktop. Mobile rema
 ## No horizontal ribbon policy
 
 Phone and tablet layouts must not rely on horizontally scrolling ribbons for primary categories, tabs, filters or build navigation. When all choices do not fit, use visible selection buttons in a wrapping/grid arrangement or an explicit selector control. Horizontal scrolling remains reserved for content where lateral browsing is intrinsically meaningful, never as a way to hide primary navigation choices.
+
+## Locale, units and currency policy
+
+Until explicitly changed by the product owner, HandyMan is a Dutch-language product. New user-facing copy must be Dutch.
+
+All user-facing measurements use the metric system. Lengths are expressed in millimetres, centimetres or metres as appropriate; imperial measurements may remain only as source provenance or stock nomenclature when technically necessary, never as the primary displayed measurement.
+
+All user-facing project cost indications use euros (€). Source prices in other currencies must not be presented as euro values without an explicit conversion or a separately researched euro estimate. Unknown costs remain unknown rather than being invented.
+
