@@ -1,0 +1,15 @@
+const projects=[
+ {title:"Adirondack Chair",desc:"A timeless outdoor classic built to last.",level:"Intermediate",time:"8–12h",cost:"$60–80",tags:["woodworking","outdoor"],img:"https://images.unsplash.com/photo-1598300053650-a2b1f4b7a2bf?auto=format&fit=crop&w=500&q=85"},
+ {title:"Garage Workbench",desc:"Sturdy, simple, and incredibly useful.",level:"Beginner",time:"4–6h",cost:"$30–50",tags:["woodworking","furniture","beginner"],img:"https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=500&q=85"},
+ {title:"Plant Stand",desc:"A stylish build for any space.",level:"Beginner",time:"2–4h",cost:"$20–30",tags:["woodworking","decor","beginner"],img:"https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=85"}
+];
+let active="woodworking";let query="";const cards=document.querySelector("#projectCards");
+function render(){const filtered=projects.filter(p=>(active==="woodworking"||p.tags.includes(active))&&(!query||[p.title,p.desc,p.level].join(" ").toLowerCase().includes(query)));cards.innerHTML=filtered.length?filtered.map((p,i)=>`<article class="card"><div class="card-img"><img src="${p.img}" alt="${p.title}" loading="lazy"><button class="heart" aria-label="Save ${p.title}" data-save="${i}">♡</button></div><div class="card-body"><h3>${p.title}</h3><p>${p.desc}</p><div class="meta"><span class="level">▥ &nbsp;${p.level}</span><span>◷ ${p.time}</span><span>▤ ${p.cost}</span></div></div></article>`).join(""):`<p style="grid-column:1/-1;color:#756f66">No builds match this filter yet.</p>`}
+render();
+document.querySelector("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));b.classList.add("active");active=b.dataset.filter;render()});
+document.querySelector("#searchInput").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();render()});document.querySelector("#searchForm").addEventListener("submit",e=>e.preventDefault());
+cards.addEventListener("click",e=>{const b=e.target.closest(".heart");if(!b)return;b.classList.toggle("saved");b.textContent=b.classList.contains("saved")?"♥":"♡"});
+function toast(msg){const t=document.querySelector("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(window._toast);window._toast=setTimeout(()=>t.classList.remove("show"),1800)}
+document.querySelector(".bottom-nav").addEventListener("click",e=>{const b=e.target.closest(".nav-item");if(!b)return;if(b.dataset.page==="home")return;toast(b.querySelector("span").textContent+" is coming next — Home is the active prototype.")});
+document.querySelector("#seeAll").addEventListener("click",()=>toast("Projects page will be added next."));
+document.querySelector(".round-arrow").addEventListener("click",()=>toast("Project detail will be connected in the next build."));
