@@ -71,3 +71,11 @@ button:active,.chip:active,.nav-item:active,.round-arrow:active{transform:scale(
 
 /* Build execution is a single tab-owned surface */
 .build-execution[hidden]{display:none!important}
+
+/* Overview owns project story and learning outcomes only */
+.overview-intro{max-width:800px}.overview-intro p{font-size:16px;line-height:1.6}
+.overview-content{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:16px}
+.project-story h3,.skills-panel h3{font:700 23px/1.15 Georgia,serif;margin:0 0 12px}
+.project-story p{font:15px/1.55 Georgia,serif;color:#514c45;margin:0 0 12px}
+.skill-list{display:grid}.skill-list>div{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--line)}.skill-list>div:first-child{border-top:0}.skill-list i{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:#ece4d8;color:var(--green);font:700 10px Georgia,serif;font-style:normal}.skill-list span{display:flex;flex-direction:column}.skill-list b{font:700 14px Georgia,serif}.skill-list small{font:12px/1.4 Georgia,serif;color:var(--muted);margin-top:3px}
+@media(max-width:720px){.overview-content{grid-template-columns:1fr}.overview-intro p{font-size:15px}}
