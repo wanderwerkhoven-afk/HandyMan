@@ -24,7 +24,7 @@
 
     <form class="search" id="searchForm"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="searchInput" aria-label="Search projects" placeholder="Search projects, skills, or materials..."><button type="button" aria-label="Filters"><svg viewBox="0 0 24 24"><path d="M4 7h10m4 0h2M4 17h2m4 0h10M14 4v6M10 14v6"/></svg></button></form>
 
-    <div class="chips" id="chips">
+    <div class="chips" id="chips" role="group" aria-label="Project category">
       <button class="chip active" data-filter="woodworking">◎ <span>Woodworking</span></button>
       <button class="chip" data-filter="furniture">▱ <span>Furniture</span></button>
       <button class="chip" data-filter="decor">♧ <span>Decor</span></button>
@@ -58,7 +58,7 @@
       <div class="build-project-copy"><span class="build-id" id="buildId"></span><h1 id="buildTitle">Project</h1><p id="buildDescription"></p><div class="build-stats"><span>▥ <b id="buildDifficulty"></b></span><span>◷ <b>Guided build</b></span></div></div>
     </section>
 
-    <nav class="build-tabs" aria-label="Build sections">
+    <nav class="build-tabs" aria-label="Build sections" role="group">
       <button class="active" data-build-tab="overview">Overview</button><button data-build-tab="materials">Materials</button><button data-build-tab="tools">Tools</button><button data-build-tab="plans">Plans</button><button data-build-tab="steps">Build</button>
     </nav>
 
