@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "idPolicy": {
+    "format": "HM-0001",
+    "description": "Stable, never-reused HandyMan project identifier. IDs are assigned sequentially and are not changed when a project is renamed or reordered.",
+    "nextId": 11
+  },
+  "projects": [
+    {
+      "id": "HM-0001",
+      "title": "Modern Wall Shelf",
+      "slug": "modern-wall-shelf",
+      "description": "A compact modern wall shelf built from a single main board with simple notched joinery.",
+      "category": [
+        "woodworking",
+        "decor"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/modern-wall-shelf"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2F901e223e-4875-4b57-94ca-257720e73095.jpeg",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0002",
+      "title": "Small Coffee Table — Super Simple Collection",
+      "slug": "small-coffee-table-super-simple",
+      "description": "A straightforward small coffee table with simple leg sets, lower shelf and tabletop.",
+      "category": [
+        "woodworking",
+        "furniture"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://ana-white.com/woodworking-projects/small-coffee-table-super-simple-collection"
+      },
+      "hero": {
+        "url": "https://ana-white.com/api/media?key=plans%2F2026-08-27%2F68aabdda-1169-412e-88fb-47a71539e022.jpg",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0003",
+      "title": "Simple Bench",
+      "slug": "simple-bench",
+      "description": "A basic bench build that introduces box assembly, legs, trim and a top.",
+      "category": [
+        "woodworking",
+        "furniture"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/simple-bench"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2F60ac9b2c-61ca-4ca5-b479-997b49a18fca.jpg",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0004",
+      "title": "Cedar Fence Picket Raised Planter with Shelf",
+      "slug": "cedar-raised-planter-shelf",
+      "description": "An outdoor raised planter with a useful lower shelf made from common cedar material.",
+      "category": [
+        "woodworking",
+        "outdoor"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://ana-white.com/woodworking-projects/cedar-fence-picket-raised-planter-shelf"
+      },
+      "hero": {
+        "url": "https://ana-white.com/api/media?key=plans%2F2026-08-27%2Fea280729-d8d6-4be6-8244-54d24266bcb5.jpg",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0005",
+      "title": "Small Raised Planter Stands",
+      "slug": "small-raised-planter-stands",
+      "description": "A small-footprint raised planter project using repeated leg assemblies and simple fastening.",
+      "category": [
+        "woodworking",
+        "outdoor",
+        "decor"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/small-raised-planter-stands"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2Ffc1ed157-1fcb-4e00-8b6f-a765729fec07.png",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0006",
+      "title": "Simple 2×2 Framed Outdoor Coffee Table",
+      "slug": "simple-2x2-outdoor-coffee-table",
+      "description": "An approachable outdoor coffee table built from inexpensive lumber with a slatted top.",
+      "category": [
+        "woodworking",
+        "outdoor",
+        "furniture"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/simple-2x2-framed-outdoor-coffee-table"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/sites/default/files/outdoor%20coffee%20table%20free%20plans.png",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0007",
+      "title": "Small Wall Shelf with Hooks",
+      "slug": "small-wall-shelf-hooks",
+      "description": "A compact wall shelf with hooks for an entryway, bathroom or workshop.",
+      "category": [
+        "woodworking",
+        "decor"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/small-wall-shelf-hooks-free-plans"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2Ff50378d9-726a-4824-8c8d-d16c301f250c.png",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0008",
+      "title": "Simple Bookshelves with Front and Back Face Frames",
+      "slug": "simple-bookshelves-face-frames",
+      "description": "A small casework project for learning shelves and front and back face framing.",
+      "category": [
+        "woodworking",
+        "furniture"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/simple-bookshelves-front-and-back-face-frames"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2Fe9bc6f39-f068-4689-babd-3039ae16ec15.jpeg",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0009",
+      "title": "Easy Wall Mail or Magazine Bin Shelf",
+      "slug": "wall-mail-magazine-bin",
+      "description": "A compact wall organizer made from simple lumber and plywood construction.",
+      "category": [
+        "woodworking",
+        "decor"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/easy-wall-mail-or-magazine-bin-shelf"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2F8e19be6f-34e8-4fd8-bc28-48f5e8468c48.jpg",
+        "licenseStatus": "UNKNOWN"
+      }
+    },
+    {
+      "id": "HM-0010",
+      "title": "Primitive Bench",
+      "slug": "primitive-bench",
+      "description": "A traditional-looking beginner bench with a very small material palette.",
+      "category": [
+        "woodworking",
+        "furniture"
+      ],
+      "difficulty": "Beginner",
+      "source": {
+        "publisher": "Ana White",
+        "url": "https://www.ana-white.com/woodworking-projects/primitive-bench"
+      },
+      "hero": {
+        "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2F00b3394f-60f7-4e29-a259-adcb56b4ee5b.jpeg",
+        "licenseStatus": "UNKNOWN"
+      }
+    }
+  ]
+}
