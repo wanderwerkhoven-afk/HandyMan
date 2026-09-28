@@ -33,3 +33,29 @@
  .featured{height:540px}
  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+@media(min-width:720px){
+ .build-page{max-width:1180px;margin:0 auto;padding:0 40px 50px}
+ .build-topbar{height:84px}
+ .build-brand{font-size:32px}
+ .build-project-head{grid-template-columns:170px minmax(0,1fr);gap:24px;padding:26px 0}
+ .build-project-head>img{width:170px;height:150px}
+ .build-project-copy{max-width:760px}
+ .build-project-copy h1{font-size:40px}
+ .build-project-copy p{font-size:17px}
+ .build-tabs{margin:0;padding:0;overflow:visible}
+ .build-tabs button{font-size:16px}
+ .build-progress{max-width:760px;margin:0 auto;padding:24px 0 22px}
+ .progress-line{top:38px}
+ .build-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.75fr);gap:24px;align-items:start}
+ .build-side{display:flex;flex-direction:column;gap:16px;margin:0}
+ .step-card{padding:26px}
+ .step-card h2{font-size:38px}
+ .step-card>p{font-size:17px;max-width:780px}
+ .step-media{height:420px}
+ .build-panel{padding:20px}
+ .panel-head h3{font-size:20px}
+ .build-panel p,.build-panel label{font-size:14px}
+ .build-controls{max-width:760px;margin:22px auto 0}
+}
+
