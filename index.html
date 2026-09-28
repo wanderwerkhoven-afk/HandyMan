@@ -46,6 +46,45 @@
     </section>
   </main>
 
+  <main class="build-page" id="buildPage" hidden>
+    <header class="build-topbar">
+      <button class="icon-button build-back" aria-label="Back to Home">‹</button>
+      <div class="build-brand"><img src="HM-icoon-1.png" alt=""><strong>HandyMan</strong></div>
+      <div class="build-actions"><button class="icon-button" id="buildSave" aria-label="Save project">♡</button><button class="icon-button" id="buildMore" aria-label="More options">•••</button></div>
+    </header>
+
+    <section class="build-project-head">
+      <img id="buildThumb" alt="">
+      <div class="build-project-copy"><span class="build-id" id="buildId"></span><h1 id="buildTitle">Project</h1><p id="buildDescription"></p><div class="build-stats"><span>▥ <b id="buildDifficulty"></b></span><span>◷ <b>Guided build</b></span></div></div>
+    </section>
+
+    <nav class="build-tabs" aria-label="Build sections">
+      <button data-build-tab="overview">Overview</button><button class="active" data-build-tab="steps">Steps</button><button data-build-tab="materials">Materials</button><button data-build-tab="tools">Tools</button><button data-build-tab="plans">Plans</button>
+    </nav>
+
+    <section class="build-progress" aria-label="Build progress">
+      <div class="progress-line"><span id="progressFill"></span></div>
+      <button data-step="0"><i>1</i><span>Prepare</span></button><button class="active" data-step="1"><i>2</i><span>Build</span></button><button data-step="2"><i>3</i><span>Fit</span></button><button data-step="3"><i>4</i><span>Finish</span></button><button data-step="4"><i>5</i><span>Complete</span></button>
+    </section>
+
+    <div class="build-layout">
+      <section class="build-main">
+        <article class="step-card">
+          <div class="step-kicker" id="stepKicker">Step 2 of 5</div><button class="step-bookmark" aria-label="Bookmark step">♡</button>
+          <h2 id="stepTitle">Build the main assembly</h2>
+          <p id="stepCopy">Follow the verified source plan for this stage. Measure carefully, dry-fit parts before fastening, and keep the assembly square.</p>
+          <div class="step-media"><img id="stepImage" alt=""><div class="media-badge">Build guide</div></div>
+        </article>
+      </section>
+      <aside class="build-side">
+        <article class="build-panel"><div class="panel-head"><h3>Cut list</h3><a id="sourceLink" target="_blank" rel="noopener">Source ↗</a></div><p>Exact dimensions stay tied to the verified source plan. HandyMan never invents missing measurements.</p><div class="cut-placeholder"><span>▱</span><b>Verified plan data</b></div></article>
+        <article class="build-panel"><div class="panel-head"><h3>Checklist</h3><span id="checkCount">0/4</span></div><label><input type="checkbox"> Review source plan</label><label><input type="checkbox"> Prepare materials</label><label><input type="checkbox"> Dry-fit pieces</label><label><input type="checkbox"> Check assembly for square</label></article>
+      </aside>
+    </div>
+
+    <footer class="build-controls"><button id="prevStep">‹ <span>Previous</span></button><button class="primary" id="nextStep"><span>Next step</span> ›</button></footer>
+  </main>
+
   <nav class="bottom-nav" aria-label="Main navigation">
     <button class="nav-item active" data-page="home"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3z"/></svg><span>Home</span></button>
     <button class="nav-item" data-page="projects"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Projects</span></button>
