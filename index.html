@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f1e7"><title>HandyMan — Build. Learn. Create.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <main class="home" id="home">
+    <header class="brand">
+      <img src="HM-icoon-1.png" alt="" class="brand-mark">
+      <div><h1>HandyMan</h1><p>BUILD <span>LEARN</span> CREATE</p></div>
+      <svg class="sketch" viewBox="0 0 88 70" aria-hidden="true"><path d="M8 20h55M18 8v52M12 23l30-13 30 14-31 14zM23 30v30m39-31v31M29 38v22m26-22v22M22 60h42" /><path d="M69 12l8 4-6 5m-3 9l10 3-7 5" /></svg>
+    </header>
+
+    <form class="search" id="searchForm"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="searchInput" aria-label="Search projects" placeholder="Search projects, skills, or materials..."><button type="button" aria-label="Filters"><svg viewBox="0 0 24 24"><path d="M4 7h10m4 0h2M4 17h2m4 0h10M14 4v6M10 14v6"/></svg></button></form>
+
+    <div class="chips" id="chips">
+      <button class="chip active" data-filter="woodworking">◎ <span>Woodworking</span></button>
+      <button class="chip" data-filter="furniture">▱ <span>Furniture</span></button>
+      <button class="chip" data-filter="decor">♧ <span>Decor</span></button>
+      <button class="chip" data-filter="outdoor">⌁ <span>Outdoor</span></button>
+      <button class="chip" data-filter="beginner">▥ <span>Beginner</span></button>
+    </div>
+
+    <article class="featured">
+      <img src="https://images.unsplash.com/photo-1532372320572-cda25653a694?auto=format&fit=crop&w=1200&q=88" alt="Handcrafted walnut shelf in a warm interior">
+      <div class="featured-shade"></div>
+      <div class="featured-copy"><span class="eyebrow">FEATURED PROJECT</span><h2>Walnut Wall Shelf</h2><p>A modern, handcrafted shelf with classic joinery. Clean lines. Big impact.</p></div>
+      <button class="round-arrow" aria-label="Open Walnut Wall Shelf">→</button>
+      <div class="featured-meta"><span>▥ &nbsp; Intermediate</span><span>◷ &nbsp; 6–8 hours</span><span>▤ &nbsp; $40–60</span></div>
+    </article>
+
+    <section class="popular">
+      <div class="section-head"><h2>Popular builds</h2><button id="seeAll">See all <span>›</span></button></div>
+      <div class="cards" id="projectCards"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button class="nav-item active" data-page="home"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3z"/></svg><span>Home</span></button>
+    <button class="nav-item" data-page="projects"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Projects</span></button>
+    <button class="nav-item build" data-page="build"><svg viewBox="0 0 24 24"><path d="m5 4 15 15M4 20 20 4M3 3l5 1-4 4zM16 16l4 4"/></svg><span>Build</span></button>
+    <button class="nav-item" data-page="saved"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg><span>Saved</span></button>
+    <button class="nav-item" data-page="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Profile</span></button>
+  </nav>
+  <div class="toast" id="toast" role="status"></div>
+</div>
+<script src="app.js"></script>
+</body></html>
