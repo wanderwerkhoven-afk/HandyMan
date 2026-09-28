@@ -8,9 +8,9 @@
   "projects": [
     {
       "id": "HM-0001",
-      "title": "Modern Wall Shelf",
+      "title": "Moderne wandplank",
       "slug": "modern-wall-shelf",
-      "description": "A compact modern wall shelf built from a single main board with simple notched joinery.",
+      "description": "Een compacte moderne wandplank uit één hoofdbord met eenvoudige ingekeepte houtverbindingen.",
       "category": [
         "woodworking",
         "decor"
@@ -24,82 +24,82 @@
         "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2F901e223e-4875-4b57-94ca-257720e73095.jpeg",
         "licenseStatus": "UNKNOWN"
       },
-      "estimatedCost": "Under $20",
-      "projectType": "Entryway Furniture",
+      "estimatedCost": "Onder €20",
+      "projectType": "Wandmeubel",
       "build": {
         "sourceStatus": "VERIFIED",
         "materials": [
           {
-            "name": "1×6 board",
+            "name": "1×6 plank",
             "quantity": "1",
-            "spec": "5 ft long"
+            "spec": "ca. 14 × 140 mm, 152,4 cm lang"
           },
           {
-            "name": "Metal angle brackets",
+            "name": "Metalen hoekbeugels",
             "quantity": "2",
-            "spec": "For wall mounting"
+            "spec": "Voor wandmontage"
           },
           {
-            "name": "¾″ screws",
+            "name": "Schroeven 19 mm",
             "quantity": "4",
-            "spec": "Two per metal bracket"
+            "spec": "Twee per metalen beugel"
           },
           {
-            "name": "2″ screws",
-            "quantity": "As needed",
-            "spec": "For wall mounting; use suitable drywall anchors when no stud is available"
+            "name": "Schroeven 50 mm",
+            "quantity": "Naar behoefte",
+            "spec": "Voor wandmontage; gebruik geschikte pluggen/ankers als er geen stijl beschikbaar is"
           },
           {
-            "name": "Wood glue",
-            "quantity": "As needed",
-            "spec": "For final assembly after dry fitting"
+            "name": "Houtlijm",
+            "quantity": "Naar behoefte",
+            "spec": "Voor definitieve montage na droogpassen"
           }
         ],
         "tools": [
-          "Measuring tape",
-          "Square",
-          "Pencil",
-          "Safety glasses",
-          "Hearing protection",
-          "Drill",
-          "Circular saw",
-          "Jigsaw",
-          "Sander",
-          "Countersink drill bit"
+          "Rolmaat",
+          "Winkelhaak",
+          "Potlood",
+          "Veiligheidsbril",
+          "Gehoorbescherming",
+          "Boormachine",
+          "Cirkelzaag",
+          "Decoupeerzaag",
+          "Schuurmachine",
+          "Verzinkboor"
         ],
         "cutList": [
           {
-            "stock": "1×6",
-            "length": "36″",
+            "stock": "ca. 14 × 140 mm",
+            "length": "91,4 cm",
             "quantity": 1
           },
           {
-            "stock": "1×6",
-            "length": "15″",
+            "stock": "ca. 14 × 140 mm",
+            "length": "38,1 cm",
             "quantity": 1
           },
           {
-            "stock": "1×6",
-            "length": "9″",
+            "stock": "ca. 14 × 140 mm",
+            "length": "22,9 cm",
             "quantity": 1
           }
         ],
         "steps": [
           {
-            "title": "Notch Boards",
-            "summary": "Measure and mark the boards according to the source plan, then carefully cut the notches with a jigsaw."
+            "title": "Inkepingen zagen",
+            "summary": "Meet en markeer de planken volgens het bronplan en zaag de inkepingen zorgvuldig met een decoupeerzaag."
           },
           {
-            "title": "Assemble",
-            "summary": "Test-fit the boards until the joints fit snugly. Separate them, apply glue, reassemble, square the shelf and allow the glue to dry."
+            "title": "Monteren",
+            "summary": "Pas de planken droog tot de verbindingen goed aansluiten. Haal ze uit elkaar, breng lijm aan, monteer opnieuw, controleer haaksheid en laat de lijm drogen."
           },
           {
-            "title": "Hanging",
-            "summary": "Mount the shelf with the metal angle brackets. Fasten into a wall stud where possible; otherwise use an appropriate drywall anchoring system."
+            "title": "Ophangen",
+            "summary": "Monteer de plank met de metalen hoekbeugels. Bevestig waar mogelijk in een wandstijl; gebruik anders een geschikt verankeringssysteem voor de wand."
           }
         ],
         "finish": {
-          "summary": "Sand with the grain and remove dust before applying an interior paint or stain finish appropriate to the project."
+          "summary": "Schuur met de houtnerf mee en verwijder stof voordat je een geschikte verf, beits of andere binnenafwerking aanbrengt."
         }
       }
     },
