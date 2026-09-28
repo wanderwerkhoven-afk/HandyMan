@@ -23,6 +23,84 @@
       "hero": {
         "url": "https://www.ana-white.com/api/media?key=plans%2F2026-08-27%2F901e223e-4875-4b57-94ca-257720e73095.jpeg",
         "licenseStatus": "UNKNOWN"
+      },
+      "estimatedCost": "Under $20",
+      "projectType": "Entryway Furniture",
+      "build": {
+        "sourceStatus": "VERIFIED",
+        "materials": [
+          {
+            "name": "1×6 board",
+            "quantity": "1",
+            "spec": "5 ft long"
+          },
+          {
+            "name": "Metal angle brackets",
+            "quantity": "2",
+            "spec": "For wall mounting"
+          },
+          {
+            "name": "¾″ screws",
+            "quantity": "4",
+            "spec": "Two per metal bracket"
+          },
+          {
+            "name": "2″ screws",
+            "quantity": "As needed",
+            "spec": "For wall mounting; use suitable drywall anchors when no stud is available"
+          },
+          {
+            "name": "Wood glue",
+            "quantity": "As needed",
+            "spec": "For final assembly after dry fitting"
+          }
+        ],
+        "tools": [
+          "Measuring tape",
+          "Square",
+          "Pencil",
+          "Safety glasses",
+          "Hearing protection",
+          "Drill",
+          "Circular saw",
+          "Jigsaw",
+          "Sander",
+          "Countersink drill bit"
+        ],
+        "cutList": [
+          {
+            "stock": "1×6",
+            "length": "36″",
+            "quantity": 1
+          },
+          {
+            "stock": "1×6",
+            "length": "15″",
+            "quantity": 1
+          },
+          {
+            "stock": "1×6",
+            "length": "9″",
+            "quantity": 1
+          }
+        ],
+        "steps": [
+          {
+            "title": "Notch Boards",
+            "summary": "Measure and mark the boards according to the source plan, then carefully cut the notches with a jigsaw."
+          },
+          {
+            "title": "Assemble",
+            "summary": "Test-fit the boards until the joints fit snugly. Separate them, apply glue, reassemble, square the shelf and allow the glue to dry."
+          },
+          {
+            "title": "Hanging",
+            "summary": "Mount the shelf with the metal angle brackets. Fasten into a wall stud where possible; otherwise use an appropriate drywall anchoring system."
+          }
+        ],
+        "finish": {
+          "summary": "Sand with the grain and remove dust before applying an interior paint or stain finish appropriate to the project."
+        }
       }
     },
     {
