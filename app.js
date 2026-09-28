@@ -95,12 +95,17 @@ function openBuild(){
 }
 function closeBuild(){document.body.classList.remove("build-mode");buildPage.hidden=true;window.scrollTo({top:0,behavior:"smooth"})}
 
+function openHome(){document.body.classList.remove("profile-mode","build-mode");document.querySelector("#profilePage").hidden=true;buildPage.hidden=true;document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="home"));window.scrollTo({top:0,behavior:"smooth"})}
+function openProfile(){document.body.classList.remove("build-mode");document.body.classList.add("profile-mode");buildPage.hidden=true;document.querySelector("#profilePage").hidden=false;document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="profile"));window.scrollTo({top:0,behavior:"smooth"})}
 document.querySelector(".bottom-nav").addEventListener("click",e=>{
  const b=e.target.closest(".nav-item");if(!b)return;
- if(b.dataset.page==="home")return;
+ if(b.dataset.page==="home"){openHome();return}
+ if(b.dataset.page==="profile"){openProfile();return}
  if(b.dataset.page==="build"){openBuild();return}
- toast(b.querySelector("span").textContent+" is coming next — Home is the active prototype.");
+ toast(b.querySelector("span").textContent+" is coming next.");
 });
+document.querySelector(".settings-list").addEventListener("click",e=>{const b=e.target.closest("button");if(b)toast(b.querySelector("b").textContent+" settings are coming next.")});
+document.querySelector("#editProfile").addEventListener("click",()=>toast("Profile editing is coming next."));
 document.querySelector("#seeAll").addEventListener("click",()=>toast("Projects page will be added next."));
 document.querySelector(".round-arrow").addEventListener("click",openBuild);
 document.querySelector(".build-back").addEventListener("click",closeBuild);
