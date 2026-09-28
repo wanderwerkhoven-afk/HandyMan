@@ -2,6 +2,20 @@ let projects=[];
 let active="woodworking";
 let query="";
 const cards=document.querySelector("#projectCards");
+const projectsPage=document.querySelector("#projectsPage");
+const projectsGrid=document.querySelector("#projectsGrid");
+let projectsFilter="all";
+let projectsQuery="";
+let selectedProjectId=null;
+const SAVED_PROJECTS_KEY="handyman-saved-projects-v1";
+function loadSavedProjects(){try{return new Set(JSON.parse(localStorage.getItem(SAVED_PROJECTS_KEY)||"[]"))}catch{return new Set()}}
+let savedProjects=loadSavedProjects();
+function persistSavedProjects(){try{localStorage.setItem(SAVED_PROJECTS_KEY,JSON.stringify([...savedProjects]))}catch(error){console.warn("Saved projects could not be persisted.",error)}}
+function isSaved(id){return savedProjects.has(id)}
+function toggleSaved(id){
+ if(isSaved(id))savedProjects.delete(id);else savedProjects.add(id);
+ persistSavedProjects();render();renderProjectsPage();
+}
 
 function projectMatches(p){
   const haystack=[p.id,p.title,p.description,p.difficulty,...p.category].join(" ").toLowerCase();
@@ -10,7 +24,33 @@ function projectMatches(p){
 
 function render(){
   const filtered=projects.filter(projectMatches);
-  cards.innerHTML=filtered.length?filtered.map(p=>`<article class="card" data-project-id="${p.id}"><div class="card-img"><img src="${p.hero.url}" alt="${p.title}" loading="lazy"><button class="heart" aria-label="Save ${p.title}" data-save="${p.id}">♡</button></div><div class="card-body"><h3>${p.title}</h3><p>${p.description}</p><div class="meta"><span class="level">▥ &nbsp;${p.difficulty}</span><span class="project-id">${p.id}</span></div></div></article>`).join(""):`<p style="grid-column:1/-1;color:#756f66">No builds match this filter yet.</p>`;
+  cards.innerHTML=filtered.length?filtered.map(p=>`<article class="card" data-project-id="${p.id}"><div class="card-img"><img src="${p.hero.url}" alt="${escapeHtml(p.title)}" loading="lazy"><button class="heart ${isSaved(p.id)?"saved":""}" aria-label="${isSaved(p.id)?"Remove":"Save"} ${escapeHtml(p.title)}" data-save="${p.id}">${isSaved(p.id)?"♥":"♡"}</button></div><div class="card-body"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.description)}</p><div class="meta"><span class="level">▥ &nbsp;${escapeHtml(p.difficulty)}</span><span class="project-id">${p.id}</span></div></div></article>`).join(""):`<p style="grid-column:1/-1;color:#756f66">No builds match this filter yet.</p>`;
+}
+
+function projectPageMatches(p){
+ const haystack=[p.id,p.title,p.description,p.difficulty,...p.category].join(" ").toLowerCase();
+ const categoryMatch=projectsFilter==="all"||projectsFilter==="beginner"?p.difficulty.toLowerCase()==="beginner":p.category.includes(projectsFilter);
+ return categoryMatch&&(!projectsQuery||haystack.includes(projectsQuery));
+}
+function renderProjectsPage(){
+ if(!projectsGrid)return;
+ const filtered=projects.filter(projectPageMatches);
+ const labels={all:"All projects",furniture:"Furniture",decor:"Decor",outdoor:"Outdoor",beginner:"Beginner builds"};
+ document.querySelector("#projectsTotal").textContent=projects.length;
+ document.querySelector("#filterCountAll").textContent=projects.length;
+ document.querySelector("#filterCountFurniture").textContent=projects.filter(p=>p.category.includes("furniture")).length;
+ document.querySelector("#filterCountDecor").textContent=projects.filter(p=>p.category.includes("decor")).length;
+ document.querySelector("#filterCountOutdoor").textContent=projects.filter(p=>p.category.includes("outdoor")).length;
+ document.querySelector("#filterCountBeginner").textContent=projects.filter(p=>p.difficulty.toLowerCase()==="beginner").length;
+ document.querySelector("#projectsResultTitle").textContent=projectsQuery?"Search results":labels[projectsFilter];
+ document.querySelector("#projectsResultCount").textContent=`${filtered.length} ${filtered.length===1?"project":"projects"}`;
+ projectsGrid.innerHTML=filtered.length?filtered.map(p=>{
+   const ready=!!p.build;
+   return `<article class="project-library-card" data-project-id="${p.id}" tabindex="0" role="button" aria-label="Open ${escapeHtml(p.title)}">
+     <div class="project-library-image"><img src="${p.hero.url}" alt="${escapeHtml(p.title)}" loading="lazy"><span class="project-number">${p.id}</span><button class="heart ${isSaved(p.id)?"saved":""}" aria-label="${isSaved(p.id)?"Remove":"Save"} ${escapeHtml(p.title)}" data-save="${p.id}">${isSaved(p.id)?"♥":"♡"}</button></div>
+     <div class="project-library-body"><div class="project-library-tags"><span>${escapeHtml(p.difficulty)}</span><span>${escapeHtml((p.category.find(c=>c!=="woodworking")||"woodworking").replace(/^./,c=>c.toUpperCase()))}</span></div><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.description)}</p><div class="project-library-footer"><span>${ready?"Plan ready":"Source queued"}</span><strong>${ready?"Start build":"View project"} <i>›</i></strong></div></div>
+   </article>`;
+ }).join(""):`<div class="projects-empty"><span>⌕</span><h3>No projects found</h3><p>Try another search or reset the filters.</p><button type="button" data-reset-projects>Show all projects</button></div>`;
 }
 
 async function loadProjects(){
@@ -19,7 +59,9 @@ async function loadProjects(){
     if(!response.ok)throw new Error(`Project catalog request failed: ${response.status}`);
     const catalog=await response.json();
     projects=catalog.projects;
+    selectedProjectId=projects[0]?.id||null;
     render();
+    renderProjectsPage();
   }catch(error){
     console.error(error);
     cards.innerHTML='<p style="grid-column:1/-1;color:#756f66">Projects could not be loaded. Serve HandyMan through a local/static web server instead of opening the file directly.</p>';
@@ -42,10 +84,10 @@ document.querySelector("#searchInput").addEventListener("input",e=>{
 document.querySelector("#searchForm").addEventListener("submit",e=>e.preventDefault());
 
 cards.addEventListener("click",e=>{
-  const b=e.target.closest(".heart");
-  if(!b)return;
-  b.classList.toggle("saved");
-  b.textContent=b.classList.contains("saved")?"♥":"♡";
+  const save=e.target.closest(".heart");
+  if(save){e.stopPropagation();toggleSaved(save.dataset.save);return}
+  const card=e.target.closest("[data-project-id]");
+  if(card)openProject(card.dataset.projectId);
 });
 
 function toast(msg){
@@ -60,7 +102,12 @@ const buildPage=document.querySelector("#buildPage");
 let buildStep=0;
 let buildTab="overview";
 
-function currentBuildProject(){return projects[0]||null}
+function currentBuildProject(){return projects.find(p=>p.id===selectedProjectId)||projects[0]||null}
+function openProject(id){
+ const project=projects.find(p=>p.id===id);if(!project)return;
+ if(!project.build){toast(project.id+" is catalogued — build details are still being verified.");return}
+ selectedProjectId=id;openBuild();
+}
 function escapeHtml(value){return String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]))}
 function renderBuildProject(){
  const p=currentBuildProject();if(!p)return;
@@ -111,11 +158,14 @@ function openBuild(){
 }
 function closeBuild(){document.body.classList.remove("build-mode");buildPage.hidden=true;window.scrollTo({top:0,behavior:"smooth"})}
 
-function openHome(){document.body.classList.remove("profile-mode","build-mode");document.querySelector("#profilePage").hidden=true;buildPage.hidden=true;document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="home"));window.scrollTo({top:0,behavior:"smooth"})}
-function openProfile(){document.body.classList.remove("build-mode");document.body.classList.add("profile-mode");buildPage.hidden=true;document.querySelector("#profilePage").hidden=false;document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="profile"));window.scrollTo({top:0,behavior:"smooth"})}
+function closePrimaryPages(){document.body.classList.remove("profile-mode","build-mode","projects-mode");document.querySelector("#profilePage").hidden=true;projectsPage.hidden=true;buildPage.hidden=true}
+function openHome(){closePrimaryPages();document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="home"));window.scrollTo({top:0,behavior:"smooth"})}
+function openProjects(){closePrimaryPages();document.body.classList.add("projects-mode");projectsPage.hidden=false;renderProjectsPage();document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="projects"));window.scrollTo({top:0,behavior:"smooth"})}
+function openProfile(){closePrimaryPages();document.body.classList.add("profile-mode");document.querySelector("#profilePage").hidden=false;document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="profile"));window.scrollTo({top:0,behavior:"smooth"})}
 document.querySelector(".bottom-nav").addEventListener("click",e=>{
  const b=e.target.closest(".nav-item");if(!b)return;
  if(b.dataset.page==="home"){openHome();return}
+ if(b.dataset.page==="projects"){openProjects();return}
  if(b.dataset.page==="profile"){openProfile();return}
  if(b.dataset.page==="build"){openBuild();return}
  toast(b.querySelector("span").textContent+" is coming next.");
@@ -148,7 +198,15 @@ document.querySelector("#editProfile").addEventListener("click",()=>openProfileD
 document.querySelector("#editAvatar").addEventListener("click",()=>document.querySelector("#profileAvatarInput").click());
 document.querySelector("#profileAvatarInput").addEventListener("change",e=>{const file=e.target.files?.[0];if(!file)return;if(file.size>2*1024*1024){toast("Choose an image under 2 MB");return}const reader=new FileReader();reader.onload=()=>{profile.avatar=reader.result;persistProfile();toast("Profile photo updated")};reader.readAsDataURL(file)});
 renderProfile();
-document.querySelector("#seeAll").addEventListener("click",()=>toast("Projects page will be added next."));
+document.querySelector("#seeAll").addEventListener("click",openProjects);
+document.querySelector("#projectFilters").addEventListener("click",e=>{const b=e.target.closest("[data-project-filter]");if(!b)return;projectsFilter=b.dataset.projectFilter;document.querySelectorAll("[data-project-filter]").forEach(x=>x.classList.toggle("active",x===b));renderProjectsPage()});
+document.querySelector("#projectsSearchInput").addEventListener("input",e=>{projectsQuery=e.target.value.trim().toLowerCase();document.querySelector("#projectsClearSearch").hidden=!projectsQuery;renderProjectsPage()});
+document.querySelector("#projectsSearchForm").addEventListener("submit",e=>e.preventDefault());
+document.querySelector("#projectsClearSearch").addEventListener("click",()=>{document.querySelector("#projectsSearchInput").value="";projectsQuery="";document.querySelector("#projectsClearSearch").hidden=true;renderProjectsPage()});
+function resetProjects(){projectsFilter="all";projectsQuery="";document.querySelector("#projectsSearchInput").value="";document.querySelector("#projectsClearSearch").hidden=true;document.querySelectorAll("[data-project-filter]").forEach(x=>x.classList.toggle("active",x.dataset.projectFilter==="all"));renderProjectsPage()}
+document.querySelector("#projectsReset").addEventListener("click",resetProjects);
+projectsGrid.addEventListener("click",e=>{const save=e.target.closest(".heart");if(save){e.stopPropagation();toggleSaved(save.dataset.save);return}if(e.target.closest("[data-reset-projects]")){resetProjects();return}const card=e.target.closest("[data-project-id]");if(card)openProject(card.dataset.projectId)});
+projectsGrid.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches(".project-library-card")){e.preventDefault();openProject(e.target.dataset.projectId)}});
 document.querySelector(".round-arrow").addEventListener("click",openBuild);
 document.querySelector(".build-back").addEventListener("click",closeBuild);
 document.querySelector("#prevStep").addEventListener("click",()=>{if(buildStep>0){buildStep--;renderBuildStep()}});
