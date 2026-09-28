@@ -68,3 +68,6 @@ button:active,.chip:active,.nav-item:active,.round-arrow:active{transform:scale(
 .plan-sheet{max-width:820px}.plan-warning{margin-top:18px;padding:16px;border-radius:12px;background:#f1eadf}.plan-warning b{font:700 16px Georgia,serif}.plan-warning p{font-size:13px;margin:5px 0 0}
 .step-focus h3{font:700 20px Georgia,serif;margin:0 0 7px}.step-focus p{font-size:14px}
 @media(max-width:720px){.overview-summary{grid-template-columns:1fr 1fr}.tool-checklist{grid-template-columns:1fr}.tab-intro h2{font-size:27px}}
+
+/* Build execution is a single tab-owned surface */
+.build-execution[hidden]{display:none!important}
