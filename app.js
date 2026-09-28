@@ -154,7 +154,7 @@ function renderBuildStep(){
  document.querySelector("#nextStep span").textContent=buildStep===steps.length-1?"Finish":"Next step";
 }
 function openBuild(){
- document.body.classList.add("build-mode");buildPage.hidden=false;buildTab="overview";buildStep=0;renderBuildProject();window.scrollTo({top:0,behavior:"smooth"});
+ closePrimaryPages();document.body.classList.add("build-mode");buildPage.hidden=false;buildTab="overview";buildStep=0;renderBuildProject();window.scrollTo({top:0,behavior:"smooth"});
 }
 function closeBuild(){document.body.classList.remove("build-mode");buildPage.hidden=true;window.scrollTo({top:0,behavior:"smooth"})}
 
