@@ -19,7 +19,9 @@ Serve the repository with a static web server. The Home screen loads its catalog
 ## Structure
 
 - `index.html` — semantic app shell and Home screen
-- `styles.css` — HandyMan design tokens and responsive UI
+- `css/tokens.css` — shared design tokens
+- `css/app.css` — canonical app/mobile styling and compact-phone adjustments
+- `css/desktop.css` — desktop-only responsive enhancements; never duplicates the full app styling
 - `app.js` — Home interactions, project-catalog loading and temporary navigation behavior
 - `data/projects.json` — canonical project catalog with stable HandyMan project IDs
 - `AGENTS.md` — Team HandyMan operating model
@@ -33,3 +35,7 @@ Projects, Build, Saved and Profile are deliberately left for separate design/imp
 ## Project IDs
 
 Every catalog project has a stable ID in the form `HM-0001`. IDs are sequential, never reused, and do not change when a project is renamed, edited or reordered. The catalog's `idPolicy.nextId` records the next available ID.
+
+## Styling architecture
+
+The app experience is the canonical visual implementation. Shared component styling belongs in `css/app.css`; reusable visual variables belong in `css/tokens.css`. Desktop is a progressive enhancement layer in `css/desktop.css` and should contain only rules that genuinely differ on wider viewports. Do not copy complete component blocks into the desktop layer when only one or two properties change.
