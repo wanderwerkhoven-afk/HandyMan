@@ -38,10 +38,10 @@
  .build-page{max-width:1180px;margin:0 auto;padding:0 40px 50px}
  .build-topbar{height:84px}
  .build-brand{font-size:32px}
- .build-project-head{grid-template-columns:170px minmax(0,1fr);gap:24px;padding:26px 0}
- .build-project-head>img{width:170px;height:150px}
- .build-project-copy{max-width:760px}
- .build-project-copy h1{font-size:40px}
+ .build-project-head{display:grid;grid-template-columns:minmax(420px,1.25fr) minmax(320px,.75fr);gap:36px;padding:30px 0;align-items:center}
+ .build-hero{aspect-ratio:16/10;min-height:330px;border-radius:24px}
+ .build-project-copy{max-width:520px}
+ .build-project-copy h1{font-size:46px}
  .build-project-copy p{font-size:17px}
  .build-tabs{margin:0;padding:0;overflow:visible}
  .build-tabs button{font-size:16px}
@@ -62,3 +62,5 @@
 
 /* Profile desktop enhancement */
 @media(min-width:720px){.profile-page{max-width:1180px;margin:0 auto;padding:26px 40px 80px}.profile-brand{margin:0 0 24px;padding:0}.profile-intro{grid-template-columns:170px minmax(0,1fr);max-width:900px}.profile-avatar{width:160px;height:160px}.profile-copy{max-width:720px}.profile-title h1{font-size:42px}.profile-role{font-size:19px}.profile-bio{font-size:17px}.profile-stats{max-width:900px;gap:16px}.profile-stats article{min-height:150px}.settings-title{font-size:36px}.settings-list{max-width:900px;grid-template-columns:1fr 1fr;gap:12px}.settings-list>button{min-height:82px}}
+
+@media(min-width:1100px){.build-hero{min-height:410px}.build-project-head{grid-template-columns:minmax(560px,1.35fr) minmax(360px,.65fr);gap:48px}}
