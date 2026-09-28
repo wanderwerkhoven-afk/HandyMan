@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f7f1e7">
@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="icon" type="image/png" href="HM-icoon-1.png">
   <link rel="apple-touch-icon" href="HM-icoon-1.png">
-  <title>HandyMan — Build. Learn. Create.</title>
+  <title>HandyMan — Bouw. Leer. Maak.</title>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/desktop.css">
@@ -18,30 +18,30 @@
   <main class="home" id="home">
     <header class="brand">
       <img src="HM-icoon-1.png" alt="" class="brand-mark">
-      <div><h1>HandyMan</h1><p>BUILD <span>LEARN</span> CREATE</p></div>
+      <div><h1>HandyMan</h1><p>BOUW <span>LEER</span> MAAK</p></div>
       <svg class="sketch" viewBox="0 0 88 70" aria-hidden="true"><path d="M8 20h55M18 8v52M12 23l30-13 30 14-31 14zM23 30v30m39-31v31M29 38v22m26-22v22M22 60h42" /><path d="M69 12l8 4-6 5m-3 9l10 3-7 5" /></svg>
     </header>
 
-    <form class="search" id="searchForm"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="searchInput" aria-label="Search projects" placeholder="Search projects, skills, or materials..."><button type="button" aria-label="Filters"><svg viewBox="0 0 24 24"><path d="M4 7h10m4 0h2M4 17h2m4 0h10M14 4v6M10 14v6"/></svg></button></form>
+    <form class="search" id="searchForm"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="searchInput" aria-label="Projecten zoeken" placeholder="Zoek projecten, technieken of materialen..."><button type="button" aria-label="Filters"><svg viewBox="0 0 24 24"><path d="M4 7h10m4 0h2M4 17h2m4 0h10M14 4v6M10 14v6"/></svg></button></form>
 
-    <div class="chips" id="chips" role="group" aria-label="Project category">
-      <button class="chip active" data-filter="woodworking">◎ <span>Woodworking</span></button>
-      <button class="chip" data-filter="furniture">▱ <span>Furniture</span></button>
-      <button class="chip" data-filter="decor">♧ <span>Decor</span></button>
-      <button class="chip" data-filter="outdoor">⌁ <span>Outdoor</span></button>
+    <div class="chips" id="chips" role="group" aria-label="Projectcategorie">
+      <button class="chip active" data-filter="woodworking">◎ <span>Houtbewerking</span></button>
+      <button class="chip" data-filter="furniture">▱ <span>Meubels</span></button>
+      <button class="chip" data-filter="decor">♧ <span>Decoratie</span></button>
+      <button class="chip" data-filter="outdoor">⌁ <span>Buiten</span></button>
       <button class="chip" data-filter="beginner">▥ <span>Beginner</span></button>
     </div>
 
     <article class="featured">
       <img src="https://images.unsplash.com/photo-1532372320572-cda25653a694?auto=format&fit=crop&w=1200&q=88" alt="Handcrafted walnut shelf in a warm interior">
       <div class="featured-shade"></div>
-      <div class="featured-copy"><span class="eyebrow">FEATURED PROJECT</span><h2>Walnut Wall Shelf</h2><p>A modern, handcrafted shelf with classic joinery. Clean lines. Big impact.</p></div>
-      <button class="round-arrow" aria-label="Open Walnut Wall Shelf">→</button>
-      <div class="featured-meta"><span>▥ &nbsp; Intermediate</span><span>◷ &nbsp; 6–8 hours</span><span>▤ &nbsp; $40–60</span></div>
+      <div class="featured-copy"><span class="eyebrow">UITGELICHT PROJECT</span><h2>Walnoten wandplank</h2><p>Een moderne handgemaakte wandplank met klassieke houtverbindingen. Strak en karaktervol.</p></div>
+      <button class="round-arrow" aria-label="Open Walnoten wandplank">→</button>
+      <div class="featured-meta"><span>▥ &nbsp; Gemiddeld</span><span>◷ &nbsp; 6–8 uur</span><span>▤ &nbsp; €35–55</span></div>
     </article>
 
     <section class="popular">
-      <div class="section-head"><h2>Popular builds</h2><button id="seeAll">See all <span>›</span></button></div>
+      <div class="section-head"><h2>Populaire projecten</h2><button id="seeAll">Bekijk alles <span>›</span></button></div>
       <div class="cards" id="projectCards"></div>
     </section>
   </main>
@@ -50,105 +50,105 @@
   <main class="projects-page" id="projectsPage" hidden>
     <header class="projects-header">
       <div>
-        <span class="projects-kicker">Project library</span>
-        <h1>Find your next build</h1>
-        <p>Browse handcrafted projects, save your favourites and start building when the plan is ready.</p>
+        <span class="projects-kicker">Projectbibliotheek</span>
+        <h1>Vind je volgende project</h1>
+        <p>Bekijk houtprojecten, bewaar je favorieten en begin met bouwen zodra het plan klaarstaat.</p>
       </div>
-      <div class="projects-count"><strong id="projectsTotal">0</strong><span>projects</span></div>
+      <div class="projects-count"><strong id="projectsTotal">0</strong><span>projecten</span></div>
     </header>
 
     <form class="projects-search" id="projectsSearchForm">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
-      <input id="projectsSearchInput" aria-label="Search all projects" placeholder="Search projects...">
-      <button id="projectsClearSearch" type="button" aria-label="Clear search" hidden>×</button>
+      <input id="projectsSearchInput" aria-label="Alle projecten zoeken" placeholder="Zoek projecten...">
+      <button id="projectsClearSearch" type="button" aria-label="Zoekopdracht wissen" hidden>×</button>
     </form>
 
     <section class="projects-filter-section" aria-labelledby="projectsFilterTitle">
-      <div class="projects-section-head"><div><span class="projects-kicker">Explore</span><h2 id="projectsFilterTitle">Browse by category</h2></div><button id="projectsReset" type="button">Reset</button></div>
-      <div class="project-filters" id="projectFilters" role="group" aria-label="Filter projects">
-        <button class="active" data-project-filter="all"><span>✦</span><b>All</b><small id="filterCountAll">0</small></button>
-        <button data-project-filter="furniture"><span>▱</span><b>Furniture</b><small id="filterCountFurniture">0</small></button>
-        <button data-project-filter="decor"><span>◇</span><b>Decor</b><small id="filterCountDecor">0</small></button>
-        <button data-project-filter="outdoor"><span>⌁</span><b>Outdoor</b><small id="filterCountOutdoor">0</small></button>
+      <div class="projects-section-head"><div><span class="projects-kicker">Ontdek</span><h2 id="projectsFilterTitle">Bekijk per categorie</h2></div><button id="projectsReset" type="button">Reset</button></div>
+      <div class="project-filters" id="projectFilters" role="group" aria-label="Projecten filteren">
+        <button class="active" data-project-filter="all"><span>✦</span><b>Alles</b><small id="filterCountAll">0</small></button>
+        <button data-project-filter="furniture"><span>▱</span><b>Meubels</b><small id="filterCountMeubels">0</small></button>
+        <button data-project-filter="decor"><span>◇</span><b>Decoratie</b><small id="filterCountDecoratie">0</small></button>
+        <button data-project-filter="outdoor"><span>⌁</span><b>Buiten</b><small id="filterCountBuiten">0</small></button>
         <button data-project-filter="beginner"><span>▥</span><b>Beginner</b><small id="filterCountBeginner">0</small></button>
       </div>
     </section>
 
     <section class="projects-catalog">
-      <div class="projects-section-head"><div><span class="projects-kicker">Catalog</span><h2 id="projectsResultTitle">All projects</h2></div><span class="projects-result-count" id="projectsResultCount"></span></div>
+      <div class="projects-section-head"><div><span class="projects-kicker">Catalogus</span><h2 id="projectsResultTitle">Alle projecten</h2></div><span class="projects-result-count" id="projectsResultCount"></span></div>
       <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
     </section>
   </main>
 
   <main class="build-page" id="buildPage" hidden>
     <header class="build-topbar">
-      <button class="icon-button build-back" aria-label="Back to Home">‹</button>
+      <button class="icon-button build-back" aria-label="Terug naar Home">‹</button>
       <div class="build-brand"><img src="HM-icoon-1.png" alt=""><strong>HandyMan</strong></div>
-      <div class="build-actions"><button class="icon-button" id="buildSave" aria-label="Save project">♡</button><button class="icon-button" id="buildMore" aria-label="More options">•••</button></div>
+      <div class="build-actions"><button class="icon-button" id="buildSave" aria-label="Project bewaren">♡</button><button class="icon-button" id="buildMore" aria-label="Meer opties">•••</button></div>
     </header>
 
     <section class="build-project-head">
-      <button class="build-hero" id="buildHero" type="button" aria-label="Enlarge project image"><img id="buildThumb" alt=""><span>⌕ View image</span></button>
-      <div class="build-project-copy"><span class="build-id" id="buildId"></span><h1 id="buildTitle">Project</h1><p id="buildDescription"></p><div class="build-stats"><span>▥ <b id="buildDifficulty"></b></span><span>◷ <b>Guided build</b></span></div></div>
+      <button class="build-hero" id="buildHero" type="button" aria-label="Projectafbeelding vergroten"><img id="buildThumb" alt=""><span>⌕ Bekijk afbeelding</span></button>
+      <div class="build-project-copy"><span class="build-id" id="buildId"></span><h1 id="buildTitle">Project</h1><p id="buildDescription"></p><div class="build-stats"><span>▥ <b id="buildDifficulty"></b></span><span>◷ <b>Begeleid bouwen</b></span></div></div>
     </section>
 
-    <nav class="build-tabs" aria-label="Build sections" role="group">
-      <button class="active" data-build-tab="overview">Overview</button><button data-build-tab="materials">Materials</button><button data-build-tab="tools">Tools</button><button data-build-tab="plans">Plans</button><button data-build-tab="steps">Build</button>
+    <nav class="build-tabs" aria-label="Projectonderdelen" role="group">
+      <button class="active" data-build-tab="overview">Overzicht</button><button data-build-tab="materials">Materialen</button><button data-build-tab="tools">Gereedschap</button><button data-build-tab="plans">Tekeningen</button><button data-build-tab="steps">Bouwen</button>
     </nav>
 
     <section class="build-tab-content" id="buildTabContent" aria-live="polite"></section>
 
-    <div class="build-execution" id="buildExecution" hidden>\n    <section class="build-progress" aria-label="Build progress">
+    <div class="build-execution" id="buildExecution" hidden>\n    <section class="build-progress" aria-label="Bouwvoortgang">
       <div class="progress-line"><span id="progressFill"></span></div>
-      <button data-step="0"><i>1</i><span>Prepare</span></button><button class="active" data-step="1"><i>2</i><span>Build</span></button><button data-step="2"><i>3</i><span>Fit</span></button><button data-step="3"><i>4</i><span>Finish</span></button><button data-step="4"><i>5</i><span>Complete</span></button>
+      <button data-step="0"><i>1</i><span>Voorbereiden</span></button><button class="active" data-step="1"><i>2</i><span>Bouwen</span></button><button data-step="2"><i>3</i><span>Passen</span></button><button data-step="3"><i>4</i><span>Afwerken</span></button><button data-step="4"><i>5</i><span>Klaar</span></button>
     </section>
 
     <div class="build-layout">
       <section class="build-main">
         <article class="step-card">
-          <div class="step-kicker" id="stepKicker">Step 2 of 5</div><button class="step-bookmark" aria-label="Bookmark step">♡</button>
-          <h2 id="stepTitle">Build the main assembly</h2>
-          <p id="stepCopy">Follow the verified source plan for this stage. Measure carefully, dry-fit parts before fastening, and keep the assembly square.</p>
-          <div class="step-media"><img id="stepImage" alt=""><div class="media-badge">Build guide</div></div>
+          <div class="step-kicker" id="stepKicker">Stap 2 van 5</div><button class="step-bookmark" aria-label="Stap bewaren">♡</button>
+          <h2 id="stepTitle">Bouw de hoofdconstructie</h2>
+          <p id="stepCopy">Volg voor deze fase het geverifieerde bronplan. Meet zorgvuldig, pas onderdelen droog voordat je ze bevestigt en houd de constructie haaks.</p>
+          <div class="step-media"><img id="stepImage" alt=""><div class="media-badge">Bouwhandleiding</div></div>
         </article>
       </section>
       <aside class="build-side">
-        <article class="build-panel step-focus"><span class="panel-eyebrow">Current stage</span><h3 id="stepSideTitle">Build task</h3><p id="stepSideCopy">Complete this stage before continuing.</p></article>
-        <article class="build-panel"><div class="panel-head"><h3>Stage checklist</h3><span id="checkCount">0/1</span></div><label><input type="checkbox" id="stageDone"> This stage is complete</label></article>
+        <article class="build-panel step-focus"><span class="panel-eyebrow">Huidige fase</span><h3 id="stepSideTitle">Bouwtaak</h3><p id="stepSideCopy">Rond deze fase af voordat je verdergaat.</p></article>
+        <article class="build-panel"><div class="panel-head"><h3>Checklist fase</h3><span id="checkCount">0/1</span></div><label><input type="checkbox" id="stageDone"> Deze fase is afgerond</label></article>
       </aside>
     </div>
 
-    <footer class="build-controls"><button id="prevStep">‹ <span>Previous</span></button><button class="primary" id="nextStep"><span>Next step</span> ›</button></footer>
+    <footer class="build-controls"><button id="prevStep">‹ <span>Vorige</span></button><button class="primary" id="nextStep"><span>Volgende stap</span> ›</button></footer>
   </main>
 
 
   <main class="profile-page" id="profilePage" hidden>
-    <header class="profile-brand brand"><img src="HM-icoon-1.png" alt="" class="brand-mark"><div><h1>HandyMan</h1><p>BUILD <span>LEARN</span> CREATE</p></div><svg class="sketch" viewBox="0 0 88 70" aria-hidden="true"><path d="M8 20h55M18 8v52M12 23l30-13 30 14-31 14zM23 30v30m39-31v31M29 38v22m26-22v22M22 60h42"/></svg></header>
-    <section class="profile-intro" id="profileIntro"><div class="profile-avatar"><div class="avatar-placeholder" id="profileAvatarPreview">W</div><input id="profileAvatarInput" type="file" accept="image/*" hidden><button id="editAvatar" type="button" aria-label="Edit profile photo"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg></button></div><div class="profile-copy"><div class="profile-title"><h1 id="profileName">Wander</h1><button id="editProfile" aria-label="Edit Profile"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg><span>Edit Profile</span></button></div><p class="profile-role" id="profileRole">DIY builder &amp; woodworking enthusiast</p><p class="profile-bio" id="profileBio">I love building useful things for my home and learning new skills along the way. Always up for the next project.</p></div></section>
-    <section class="profile-stats" id="profileStats"><article><span>♡</span><b>3</b><small>Saved<br>projects</small></article><article><span>⚒</span><b>12</b><small>Builds<br>completed</small></article><article><span>◷</span><b>2</b><small>Active<br>builds</small></article><article><span>▤</span><b>8</b><small>Downloaded<br>plans</small></article></section>
-    <h2 class="settings-title">Settings</h2>
+    <header class="profile-brand brand"><img src="HM-icoon-1.png" alt="" class="brand-mark"><div><h1>HandyMan</h1><p>BOUW <span>LEER</span> MAAK</p></div><svg class="sketch" viewBox="0 0 88 70" aria-hidden="true"><path d="M8 20h55M18 8v52M12 23l30-13 30 14-31 14zM23 30v30m39-31v31M29 38v22m26-22v22M22 60h42"/></svg></header>
+    <section class="profile-intro" id="profileIntro"><div class="profile-avatar"><div class="avatar-placeholder" id="profileAvatarPreview">W</div><input id="profileAvatarInput" type="file" accept="image/*" hidden><button id="editAvatar" type="button" aria-label="Profiel bewerken photo"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg></button></div><div class="profile-copy"><div class="profile-title"><h1 id="profileName">Wander</h1><button id="editProfile" aria-label="Edit Profile"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg><span>Edit Profile</span></button></div><p class="profile-role" id="profileRole">Doe-het-zelver &amp; houtbewerkingsliefhebber</p><p class="profile-bio" id="profileBio">Ik bouw graag nuttige dingen voor thuis en leer onderweg nieuwe technieken. Altijd klaar voor het volgende project.</p></div></section>
+    <section class="profile-stats" id="profileStats"><article><span>♡</span><b>3</b><small>Bewaard<br>projecten</small></article><article><span>⚒</span><b>12</b><small>Projecten<br>afgerond</small></article><article><span>◷</span><b>2</b><small>Actieve<br>projecten</small></article><article><span>▤</span><b>8</b><small>Gedownloade<br>tekeningen</small></article></section>
+    <h2 class="settings-title">Instellingen</h2>
     <section class="settings-list">
-      <button data-setting="units"><i class="setting-icon">⚙</i><span><b>Units</b><small>Choose your preferred measurements</small></span><em>Imperial (in)</em><strong>›</strong></button>
-      <button data-setting="notifications"><i class="setting-icon">♧</i><span><b>Notifications</b><small>Project updates, tips, and reminders</small></span><em>On</em><strong>›</strong></button>
-      <button data-setting="skill"><i class="setting-icon">▥</i><span><b>Skill Level</b><small>Help us recommend the right projects</small></span><em>Intermediate</em><strong>›</strong></button>
-      <button data-setting="downloads"><i class="setting-icon">⇩</i><span><b>Downloaded Plans</b><small>Access your saved plans offline</small></span><em>8 plans</em><strong>›</strong></button>
-      <button data-setting="favorites"><i class="setting-icon">♡</i><span><b>Favorites</b><small>View your liked tools, materials, and projects</small></span><strong>›</strong></button>
-      <button data-setting="appearance"><i class="setting-icon">☼</i><span><b>Appearance</b><small>Choose your app theme</small></span><em>Light</em><strong>›</strong></button>
-      <button data-setting="help"><i class="setting-icon">?</i><span><b>Help &amp; Safety</b><small>Guides, safety tips, and support</small></span><strong>›</strong></button>
+      <button data-setting="units"><i class="setting-icon">⚙</i><span><b>Eenheden</b><small>Kies je gewenste maateenheden</small></span><em>Metrisch (cm)</em><strong>›</strong></button>
+      <button data-setting="notifications"><i class="setting-icon">♧</i><span><b>Meldingen</b><small>Projectupdates, tips en herinneringen</small></span><em>Aan</em><strong>›</strong></button>
+      <button data-setting="skill"><i class="setting-icon">▥</i><span><b>Niveau</b><small>Helpt ons passende projecten aan te bevelen</small></span><em>Gemiddeld</em><strong>›</strong></button>
+      <button data-setting="downloads"><i class="setting-icon">⇩</i><span><b>Gedownloade tekeningen</b><small>Bekijk opgeslagen tekeningen offline</small></span><em>8 tekeningen</em><strong>›</strong></button>
+      <button data-setting="favorites"><i class="setting-icon">♡</i><span><b>Favorieten</b><small>Bekijk je favoriete gereedschap, materialen en projecten</small></span><strong>›</strong></button>
+      <button data-setting="appearance"><i class="setting-icon">☼</i><span><b>Weergave</b><small>Kies het thema van de app</small></span><em>Licht</em><strong>›</strong></button>
+      <button data-setting="help"><i class="setting-icon">?</i><span><b>Hulp &amp; veiligheid</b><small>Handleidingen, veiligheidstips en ondersteuning</small></span><strong>›</strong></button>
     </section>
   </main>
-  <nav class="bottom-nav" aria-label="Main navigation">
+  <nav class="bottom-nav" aria-label="Hoofdnavigatie">
     <button class="nav-item active" data-page="home"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3z"/></svg><span>Home</span></button>
-    <button class="nav-item" data-page="projects"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Projects</span></button>
-    <button class="nav-item build" data-page="build"><svg viewBox="0 0 24 24"><path d="m5 4 15 15M4 20 20 4M3 3l5 1-4 4zM16 16l4 4"/></svg><span>Build</span></button>
-    <button class="nav-item" data-page="saved"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg><span>Saved</span></button>
-    <button class="nav-item" data-page="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Profile</span></button>
+    <button class="nav-item" data-page="projects"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Projecten</span></button>
+    <button class="nav-item build" data-page="build"><svg viewBox="0 0 24 24"><path d="m5 4 15 15M4 20 20 4M3 3l5 1-4 4zM16 16l4 4"/></svg><span>Bouwen</span></button>
+    <button class="nav-item" data-page="saved"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg><span>Bewaard</span></button>
+    <button class="nav-item" data-page="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Profiel</span></button>
   </nav>
   <div class="toast" id="toast" role="status"></div>
 
-  <dialog class="profile-dialog" id="profileDialog"><form method="dialog"><header><div><span id="profileDialogKicker">Profile</span><h2 id="profileDialogTitle">Edit profile</h2></div><button value="cancel" class="dialog-close" aria-label="Close">×</button></header><div id="profileDialogBody"></div><footer><button value="cancel" class="secondary">Cancel</button><button type="button" class="primary" id="profileDialogSave">Save</button></footer></form></dialog>
-  <dialog class="image-spotlight" id="imageSpotlight" aria-label="Project image preview">
-    <button class="spotlight-close" type="button" aria-label="Close image preview">×</button>
+  <dialog class="profile-dialog" id="profileDialog"><form method="dialog"><header><div><span id="profileDialogKicker">Profiel</span><h2 id="profileDialogTitle">Profiel bewerken</h2></div><button value="cancel" class="dialog-close" aria-label="Sluiten">×</button></header><div id="profileDialogBody"></div><footer><button value="cancel" class="secondary">Annuleren</button><button type="button" class="primary" id="profileDialogSave">Opslaan</button></footer></form></dialog>
+  <dialog class="image-spotlight" id="imageSpotlight" aria-label="Voorvertoning projectafbeelding">
+    <button class="spotlight-close" type="button" aria-label="Afbeelding sluiten">×</button>
     <img id="spotlightImage" alt="">
     <p id="spotlightCaption"></p>
   </dialog>
