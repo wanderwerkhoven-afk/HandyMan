@@ -64,12 +64,12 @@
 
     <section class="build-tab-content" id="buildTabContent" aria-live="polite"></section>
 
-    <section class="build-progress build-steps-only" aria-label="Build progress">
+    <div class="build-execution" id="buildExecution" hidden>\n    <section class="build-progress" aria-label="Build progress">
       <div class="progress-line"><span id="progressFill"></span></div>
       <button data-step="0"><i>1</i><span>Prepare</span></button><button class="active" data-step="1"><i>2</i><span>Build</span></button><button data-step="2"><i>3</i><span>Fit</span></button><button data-step="3"><i>4</i><span>Finish</span></button><button data-step="4"><i>5</i><span>Complete</span></button>
     </section>
 
-    <div class="build-layout build-steps-only">
+    <div class="build-layout">
       <section class="build-main">
         <article class="step-card">
           <div class="step-kicker" id="stepKicker">Step 2 of 5</div><button class="step-bookmark" aria-label="Bookmark step">♡</button>
@@ -84,7 +84,7 @@
       </aside>
     </div>
 
-    <footer class="build-controls build-steps-only"><button id="prevStep">‹ <span>Previous</span></button><button class="primary" id="nextStep"><span>Next step</span> ›</button></footer>
+    <footer class="build-controls"><button id="prevStep">‹ <span>Previous</span></button><button class="primary" id="nextStep"><span>Next step</span> ›</button></footer>
   </main>
 
 
