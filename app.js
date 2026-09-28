@@ -122,10 +122,11 @@ document.querySelector(".bottom-nav").addEventListener("click",e=>{
 });
 const PROFILE_KEY="handyman-profile-v1";
 const defaultProfile={name:"Wander",role:"DIY builder & woodworking enthusiast",bio:"I love building useful things for my home and learning new skills along the way. Always up for the next project.",units:"Imperial (in)",notifications:true,skill:"Intermediate",appearance:"Light",avatar:""};
-let profile={...defaultProfile,...JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}")};
+function loadProfile(){try{return {...defaultProfile,...JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}")}}catch(error){console.warn("Invalid saved profile; using defaults.",error);return {...defaultProfile}}}
+let profile=loadProfile();
 const profileDialog=document.querySelector("#profileDialog"),profileDialogBody=document.querySelector("#profileDialogBody"),profileDialogSave=document.querySelector("#profileDialogSave");
 let profileAction=null;
-function persistProfile(){localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));renderProfile()}
+function persistProfile(){try{localStorage.setItem(PROFILE_KEY,JSON.stringify(profile))}catch(error){console.warn("Profile could not be persisted.",error);toast("Profile saved for this session only")}renderProfile()}
 function renderProfile(){
  document.querySelector("#profileName").textContent=profile.name;document.querySelector("#profileRole").textContent=profile.role;document.querySelector("#profileBio").textContent=profile.bio;
  const avatar=document.querySelector("#profileAvatarPreview");avatar.textContent=profile.avatar?"":(profile.name.trim()[0]||"H").toUpperCase();avatar.style.backgroundImage=profile.avatar?'url("'+profile.avatar+'")':"";avatar.classList.toggle("has-image",!!profile.avatar);
