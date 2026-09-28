@@ -56,12 +56,60 @@ function toast(msg){
   window._toast=setTimeout(()=>t.classList.remove("show"),1800);
 }
 
+const buildPage=document.querySelector("#buildPage");
+let buildStep=1;
+const buildSteps=[
+ {title:"Prepare the parts",copy:"Review the verified source plan, gather the required materials and tools, then mark every cut before starting."},
+ {title:"Build the main assembly",copy:"Follow the verified source plan for this stage. Measure carefully, dry-fit parts before fastening, and keep the assembly square."},
+ {title:"Fit and check",copy:"Test the fit of the assembled parts and correct alignment before moving on to the finishing stage."},
+ {title:"Sand and finish",copy:"Prepare the surfaces and apply the finish specified by the source plan or a finish appropriate for the material and intended use."},
+ {title:"Final check",copy:"Inspect the completed project, confirm all fasteners and joints are secure, and compare the result with the source plan."}
+];
+
+function currentBuildProject(){return projects[0]||null}
+function renderBuildProject(){
+ const p=currentBuildProject();if(!p)return;
+ document.querySelector("#buildThumb").src=p.hero.url;
+ document.querySelector("#stepImage").src=p.hero.url;
+ document.querySelector("#buildThumb").alt=p.title;
+ document.querySelector("#stepImage").alt=p.title+" build reference";
+ document.querySelector("#buildId").textContent=p.id;
+ document.querySelector("#buildTitle").textContent=p.title;
+ document.querySelector("#buildDescription").textContent=p.description;
+ document.querySelector("#buildDifficulty").textContent=p.difficulty;
+ document.querySelector("#sourceLink").href=p.source.url;
+ renderBuildStep();
+}
+function renderBuildStep(){
+ const s=buildSteps[buildStep];
+ document.querySelector("#stepKicker").textContent=`Step ${buildStep+1} of ${buildSteps.length}`;
+ document.querySelector("#stepTitle").textContent=s.title;
+ document.querySelector("#stepCopy").textContent=s.copy;
+ document.querySelector("#progressFill").style.width=(buildStep/(buildSteps.length-1)*100)+"%";
+ document.querySelectorAll("[data-step]").forEach((b,i)=>{b.classList.toggle("active",i===buildStep);b.classList.toggle("done",i<buildStep)});
+ document.querySelector("#prevStep").disabled=buildStep===0;
+ document.querySelector("#nextStep span").textContent=buildStep===buildSteps.length-1?"Finish":"Next step";
+}
+function openBuild(){
+ document.body.classList.add("build-mode");buildPage.hidden=false;renderBuildProject();window.scrollTo({top:0,behavior:"smooth"});
+}
+function closeBuild(){document.body.classList.remove("build-mode");buildPage.hidden=true;window.scrollTo({top:0,behavior:"smooth"})}
+
 document.querySelector(".bottom-nav").addEventListener("click",e=>{
-  const b=e.target.closest(".nav-item");
-  if(!b||b.dataset.page==="home")return;
-  toast(b.querySelector("span").textContent+" is coming next — Home is the active prototype.");
+ const b=e.target.closest(".nav-item");if(!b)return;
+ if(b.dataset.page==="home")return;
+ if(b.dataset.page==="build"){openBuild();return}
+ toast(b.querySelector("span").textContent+" is coming next — Home is the active prototype.");
 });
 document.querySelector("#seeAll").addEventListener("click",()=>toast("Projects page will be added next."));
-document.querySelector(".round-arrow").addEventListener("click",()=>toast("Project detail will be connected in the next build."));
+document.querySelector(".round-arrow").addEventListener("click",openBuild);
+document.querySelector(".build-back").addEventListener("click",closeBuild);
+document.querySelector("#prevStep").addEventListener("click",()=>{if(buildStep>0){buildStep--;renderBuildStep()}});
+document.querySelector("#nextStep").addEventListener("click",()=>{if(buildStep<buildSteps.length-1){buildStep++;renderBuildStep()}else{toast("Build complete — nice work.")}});
+document.querySelector(".build-progress").addEventListener("click",e=>{const b=e.target.closest("[data-step]");if(!b)return;buildStep=Number(b.dataset.step);renderBuildStep()});
+document.querySelector(".build-tabs").addEventListener("click",e=>{const b=e.target.closest("[data-build-tab]");if(!b)return;document.querySelectorAll("[data-build-tab]").forEach(x=>x.classList.toggle("active",x===b));if(b.dataset.buildTab!=="steps")toast(b.textContent+" content will be connected to verified project data next.")});
+document.querySelector(".build-side").addEventListener("change",()=>{const boxes=[...document.querySelectorAll(".build-panel input[type=checkbox]")];document.querySelector("#checkCount").textContent=boxes.filter(x=>x.checked).length+"/"+boxes.length});
+document.querySelector("#buildSave").addEventListener("click",e=>{e.currentTarget.classList.toggle("saved");e.currentTarget.textContent=e.currentTarget.classList.contains("saved")?"♥":"♡"});
+
 
 loadProjects();
