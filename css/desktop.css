@@ -64,3 +64,15 @@
 @media(min-width:720px){.profile-page{max-width:1180px;margin:0 auto;padding:26px 40px 80px}.profile-brand{margin:0 0 24px;padding:0}.profile-intro{grid-template-columns:170px minmax(0,1fr);max-width:900px}.profile-avatar{width:160px;height:160px}.profile-copy{max-width:720px}.profile-title h1{font-size:42px}.profile-role{font-size:19px}.profile-bio{font-size:17px}.profile-stats{max-width:900px;gap:16px}.profile-stats article{min-height:150px}.settings-title{font-size:36px}.settings-list{max-width:900px;grid-template-columns:1fr 1fr;gap:12px}.settings-list>button{min-height:82px}}
 
 @media(min-width:1100px){.build-hero{min-height:410px}.build-project-head{grid-template-columns:minmax(560px,1.35fr) minmax(360px,.65fr);gap:48px}}
+
+@media(min-width:720px){
+ .projects-page{max-width:1180px;margin:0 auto;padding:38px 40px 90px}
+ .projects-header{padding:22px 0 28px;align-items:center}
+ .projects-header h1{font-size:52px}.projects-header p{font-size:17px}.projects-count{width:92px;height:92px;flex-basis:92px}.projects-count strong{font-size:31px}
+ .projects-search{max-width:760px;height:60px}
+ .projects-filter-section{margin-top:36px}.projects-section-head h2{font-size:34px}
+ .project-filters{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.project-filters button{min-height:82px;grid-template-columns:30px 1fr auto}
+ .projects-catalog{margin-top:40px}.projects-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+ .project-library-image{height:240px}.project-library-body{padding:16px}.project-library-card h3{font-size:21px}.project-library-card p{font-size:14px;min-height:58px}.project-library-footer strong{font-size:13px}
+}
+@media(min-width:1200px){.projects-page{padding-left:48px;padding-right:48px}.project-library-image{height:260px}}
