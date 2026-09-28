@@ -153,15 +153,43 @@ function renderBuildStep(){
  document.querySelector("#prevStep").disabled=buildStep===0;
  document.querySelector("#nextStep span").textContent=buildStep===steps.length-1?"Finish":"Next step";
 }
-function openBuild(){
- closePrimaryPages();document.body.classList.add("build-mode");buildPage.hidden=false;buildTab="overview";buildStep=0;renderBuildProject();window.scrollTo({top:0,behavior:"smooth"});
-}
-function closeBuild(){document.body.classList.remove("build-mode");buildPage.hidden=true;window.scrollTo({top:0,behavior:"smooth"})}
+const homePage=document.querySelector("#home");
+const profilePage=document.querySelector("#profilePage");
+let currentPage="home";
+let buildReturnPage="home";
 
-function closePrimaryPages(){document.body.classList.remove("profile-mode","build-mode","projects-mode");document.querySelector("#profilePage").hidden=true;projectsPage.hidden=true;buildPage.hidden=true}
-function openHome(){closePrimaryPages();document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="home"));window.scrollTo({top:0,behavior:"smooth"})}
-function openProjects(){closePrimaryPages();document.body.classList.add("projects-mode");projectsPage.hidden=false;renderProjectsPage();document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="projects"));window.scrollTo({top:0,behavior:"smooth"})}
-function openProfile(){closePrimaryPages();document.body.classList.add("profile-mode");document.querySelector("#profilePage").hidden=false;document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page==="profile"));window.scrollTo({top:0,behavior:"smooth"})}
+function setActiveNav(page){
+ document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.page===page));
+}
+function hideAllPages(){
+ homePage.hidden=true;
+ projectsPage.hidden=true;
+ buildPage.hidden=true;
+ profilePage.hidden=true;
+ document.body.classList.remove("profile-mode","build-mode","projects-mode");
+}
+function openBuild(){
+ buildReturnPage=currentPage==="projects"?"projects":"home";
+ hideAllPages();
+ currentPage="build";
+ document.body.classList.add("build-mode");
+ buildPage.hidden=false;
+ buildTab="overview";buildStep=0;renderBuildProject();
+ setActiveNav("build");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function closeBuild(){
+ if(buildReturnPage==="projects")openProjects();else openHome();
+}
+function openHome(){
+ hideAllPages();currentPage="home";homePage.hidden=false;setActiveNav("home");window.scrollTo({top:0,behavior:"smooth"});
+}
+function openProjects(){
+ hideAllPages();currentPage="projects";document.body.classList.add("projects-mode");projectsPage.hidden=false;renderProjectsPage();setActiveNav("projects");window.scrollTo({top:0,behavior:"smooth"});
+}
+function openProfile(){
+ hideAllPages();currentPage="profile";document.body.classList.add("profile-mode");profilePage.hidden=false;setActiveNav("profile");window.scrollTo({top:0,behavior:"smooth"});
+}
 document.querySelector(".bottom-nav").addEventListener("click",e=>{
  const b=e.target.closest(".nav-item");if(!b)return;
  if(b.dataset.page==="home"){openHome();return}
