@@ -15,8 +15,9 @@ The Orchestrator should:
 4. Run independent analysis/design tasks in parallel where possible.
 5. Prevent multiple agents from editing the same surface without coordination.
 6. Integrate work into one coherent implementation.
-7. Run Review + QA before considering the task complete.
-8. Record meaningful product or architecture decisions.
+7. Run Code Canonicalizer + Repository Steward on the integrated change.
+8. Run QA, Review + Code Hygiene Review before considering the task complete.
+9. Record meaningful product or architecture decisions.
 
 ## Core agents
 
@@ -30,6 +31,9 @@ The Orchestrator should:
 | Craft Content | DIY project structure, woodworking terminology, plan quality |
 | QA & Review | Regression review, edge cases, usability, consistency |
 | Security & Privacy | Security, privacy, dependency and data-risk review |
+| Code Canonicalizer | Canonical code ownership, deduplication, dead-code cleanup |
+| Repository Steward | Folder structure, naming, file placement and safe moves |
+| Code Hygiene Review | Final duplicate/override/structure regression gate |
 
 ## Parallel execution rules
 
@@ -56,7 +60,10 @@ A feature is done only when:
 - Accessibility basics are respected.
 - Data/state behavior is deterministic.
 - Existing behavior is not unintentionally broken.
+- Code Canonicalizer has removed superseded iterations, duplicate ownership and stale overrides.
+- Repository Steward has checked file/folder placement and naming.
 - QA/Review has checked the final integrated result.
+- Code Hygiene Review has passed the final implementation.
 - README/docs are updated when architecture or usage changes.
 
 ## Product principles
@@ -67,3 +74,12 @@ A feature is done only when:
 4. **Progressive detail** — A beginner can start quickly; an experienced maker can inspect exact dimensions.
 5. **Mobile workshop usability** — Controls must work with one hand and in real workshop conditions.
 6. **No fake precision** — Never invent measurements or safety-critical woodworking instructions and present them as verified.
+
+
+## Permanent canonical-code policy
+
+Every **Team HandyMan** command includes a maintenance pass. Iterative development must modify the canonical implementation rather than stack patches on top of earlier patches.
+
+When multiple historical implementations solve the same behavior, preserve the latest intentional product behavior, fold it into the canonical owner, then remove superseded code. Do not keep duplicate CSS blocks, duplicate event handlers, duplicate state, or old/new file copies as a safety blanket.
+
+The Repository Steward may improve structure incrementally when the benefit is clear. Structural changes must update references atomically and must not break a working feature merely to satisfy an aesthetic folder preference.
