@@ -1,23 +1,30 @@
 # HandyMan
 
-HandyMan is a DIY discovery and build-guidance app focused on woodworking, handcrafted projects, construction drawings, patterns and step-by-step instructions.
+HandyMan is a mobile-first DIY application for discovering woodworking and handcrafted projects, with plans, patterns, materials and step-by-step build guidance.
 
-## Product pillars
+## Current prototype
 
-- Discover inspiring DIY projects
-- Build with clear step-by-step guidance
-- Use precise drawings, measurements and cut lists
-- Save projects and track build progress
-- Celebrate craftsmanship and real materials
+The first app shell is now implemented as a dependency-free static web app:
 
-## AI development team
+- Home page based on the approved HandyMan mockup
+- Responsive mobile-first layout
+- Search field and category filtering
+- Popular project cards with local save interaction
+- Persistent five-item navigation shell: Home, Projects, Build, Saved, Profile
+- Only Home is active; the other destinations intentionally show a temporary "coming next" message
+- Existing HandyMan icon is reused as the brand mark
 
-This repository uses a role-based AI agent workflow. See [AGENTS.md](./AGENTS.md) and [.github/agents](./.github/agents).
+Open `index.html` directly or serve the repository with any static web server.
 
-### Command: Team HandyMan
+## Structure
 
-When a task is started with **Team HandyMan**, the Orchestrator splits the work into parallel workstreams where possible, assigns owners, checks dependencies, and combines the result after review.
+- `index.html` — semantic app shell and Home screen
+- `styles.css` — HandyMan design tokens and responsive UI
+- `app.js` — Home interactions and temporary navigation behavior
+- `AGENTS.md` — Team HandyMan operating model
+- `.github/agents/` — specialist agent definitions
+- `docs/` — product documentation
 
-## Status
+## Next screens
 
-Initial product and agent architecture is being established.
+Projects, Build, Saved and Profile are deliberately left for separate design/implementation passes so their flows can be designed before being coupled to the Home shell.
