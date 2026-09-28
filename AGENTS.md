@@ -2,7 +2,7 @@
 
 ## Mission
 
-Build HandyMan into a polished mobile-first DIY application for woodworking and handcrafted projects, with reliable plans, patterns, materials, tools and step-by-step build instructions.
+Build HandyMan into a polished responsive DIY application and desktop website for woodworking and handcrafted projects, with reliable plans, patterns, materials, tools and step-by-step build instructions.
 
 ## Team command
 
@@ -59,7 +59,7 @@ Serialize when:
 
 A feature is done only when:
 - User goal is clear.
-- Mobile layout works first, desktop second.
+- Mobile and desktop are both first-class supported experiences; neither may be a stretched/emulated version of the other.
 - Empty/loading/error states are considered.
 - Accessibility basics are respected.
 - Data/state behavior is deterministic.
@@ -76,7 +76,7 @@ A feature is done only when:
 2. **Clarity over decoration** — Measurements and instructions must remain easy to read.
 3. **Show the build** — Finished result, tools, materials, cut list, drawings and steps belong together.
 4. **Progressive detail** — A beginner can start quickly; an experienced maker can inspect exact dimensions.
-5. **Mobile workshop usability** — Controls must work with one hand and in real workshop conditions.
+5. **Cross-device usability** — Mobile controls must work one-handed in workshop conditions, while desktop must use the available space for efficient browsing and building.
 6. **No fake precision** — Never invent measurements or safety-critical woodworking instructions and present them as verified.
 
 
@@ -101,3 +101,7 @@ Workflow:
 5. Only CATALOG READY data may be presented internally as verified build data. Unknowns remain explicit; they are never filled by invention.
 
 Research output must retain clickable source URLs and per-project hero-image URLs/provenance so the product team can audit where content came from.
+
+## Responsive product policy
+
+HandyMan is one responsive product across phone, tablet and desktop. Mobile remains a critical workshop context, but desktop is not a phone mockup centered in a large browser window. Every new screen must define its information hierarchy and layout for narrow and wide viewports. Shared data, components, navigation semantics and interaction state stay canonical across breakpoints; presentation may adapt substantially when wider space improves usability. QA must check at minimum a narrow phone, tablet/intermediate width and a desktop viewport.
