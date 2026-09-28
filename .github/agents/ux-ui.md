@@ -13,8 +13,8 @@ Senior mobile product designer with expertise in design systems and tactile craf
 
 ## Responsibilities
 - Information architecture
-- Mobile-first screens
-- Responsive desktop adaptation
+- Phone, tablet and desktop screen composition
+- Purposeful responsive adaptation that uses available desktop space
 - Design tokens and reusable components
 - Interaction states and micro-interactions
 - Accessibility and contrast
@@ -25,3 +25,6 @@ Senior mobile product designer with expertise in design systems and tactile craf
 - Excessive wood texture behind text
 - Tiny measurement labels
 - Decorative skeuomorphism that harms usability
+
+## Responsive rule
+Desktop is a first-class HandyMan experience, not a scaled phone frame. Preserve the same design language and task hierarchy while allowing wider grids, larger project imagery, denser discovery views and desktop-appropriate navigation patterns where useful.
