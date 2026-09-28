@@ -90,17 +90,17 @@
 
   <main class="profile-page" id="profilePage" hidden>
     <header class="profile-brand brand"><img src="HM-icoon-1.png" alt="" class="brand-mark"><div><h1>HandyMan</h1><p>BUILD <span>LEARN</span> CREATE</p></div><svg class="sketch" viewBox="0 0 88 70" aria-hidden="true"><path d="M8 20h55M18 8v52M12 23l30-13 30 14-31 14zM23 30v30m39-31v31M29 38v22m26-22v22M22 60h42"/></svg></header>
-    <section class="profile-intro"><div class="profile-avatar"><div class="avatar-placeholder">W</div><button aria-label="Edit profile photo"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg></button></div><div class="profile-copy"><div class="profile-title"><h1>Wander</h1><button id="editProfile" aria-label="Edit Profile"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg><span>Edit Profile</span></button></div><p class="profile-role">DIY builder &amp; woodworking enthusiast</p><p class="profile-bio">I love building useful things for my home and learning new skills along the way. Always up for the next project.</p></div></section>
-    <section class="profile-stats"><article><span>♡</span><b>3</b><small>Saved<br>projects</small></article><article><span>⚒</span><b>12</b><small>Builds<br>completed</small></article><article><span>◷</span><b>2</b><small>Active<br>builds</small></article><article><span>▤</span><b>8</b><small>Downloaded<br>plans</small></article></section>
+    <section class="profile-intro" id="profileIntro"><div class="profile-avatar"><div class="avatar-placeholder" id="profileAvatarPreview">W</div><input id="profileAvatarInput" type="file" accept="image/*" hidden><button id="editAvatar" type="button" aria-label="Edit profile photo"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg></button></div><div class="profile-copy"><div class="profile-title"><h1 id="profileName">Wander</h1><button id="editProfile" aria-label="Edit Profile"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.7-10.7-3.2-3.2L5 15.8 4 20zM14.8 6l3.2 3.2"/></svg><span>Edit Profile</span></button></div><p class="profile-role" id="profileRole">DIY builder &amp; woodworking enthusiast</p><p class="profile-bio" id="profileBio">I love building useful things for my home and learning new skills along the way. Always up for the next project.</p></div></section>
+    <section class="profile-stats" id="profileStats"><article><span>♡</span><b>3</b><small>Saved<br>projects</small></article><article><span>⚒</span><b>12</b><small>Builds<br>completed</small></article><article><span>◷</span><b>2</b><small>Active<br>builds</small></article><article><span>▤</span><b>8</b><small>Downloaded<br>plans</small></article></section>
     <h2 class="settings-title">Settings</h2>
     <section class="settings-list">
-      <button><i class="setting-icon">⚙</i><span><b>Units</b><small>Choose your preferred measurements</small></span><em>Imperial (in)</em><strong>›</strong></button>
-      <button><i class="setting-icon">♧</i><span><b>Notifications</b><small>Project updates, tips, and reminders</small></span><em>On</em><strong>›</strong></button>
-      <button><i class="setting-icon">▥</i><span><b>Skill Level</b><small>Help us recommend the right projects</small></span><em>Intermediate</em><strong>›</strong></button>
-      <button><i class="setting-icon">⇩</i><span><b>Downloaded Plans</b><small>Access your saved plans offline</small></span><em>8 plans</em><strong>›</strong></button>
-      <button><i class="setting-icon">♡</i><span><b>Favorites</b><small>View your liked tools, materials, and projects</small></span><strong>›</strong></button>
-      <button><i class="setting-icon">☼</i><span><b>Appearance</b><small>Choose your app theme</small></span><em>Light</em><strong>›</strong></button>
-      <button><i class="setting-icon">?</i><span><b>Help &amp; Safety</b><small>Guides, safety tips, and support</small></span><strong>›</strong></button>
+      <button data-setting="units"><i class="setting-icon">⚙</i><span><b>Units</b><small>Choose your preferred measurements</small></span><em>Imperial (in)</em><strong>›</strong></button>
+      <button data-setting="notifications"><i class="setting-icon">♧</i><span><b>Notifications</b><small>Project updates, tips, and reminders</small></span><em>On</em><strong>›</strong></button>
+      <button data-setting="skill"><i class="setting-icon">▥</i><span><b>Skill Level</b><small>Help us recommend the right projects</small></span><em>Intermediate</em><strong>›</strong></button>
+      <button data-setting="downloads"><i class="setting-icon">⇩</i><span><b>Downloaded Plans</b><small>Access your saved plans offline</small></span><em>8 plans</em><strong>›</strong></button>
+      <button data-setting="favorites"><i class="setting-icon">♡</i><span><b>Favorites</b><small>View your liked tools, materials, and projects</small></span><strong>›</strong></button>
+      <button data-setting="appearance"><i class="setting-icon">☼</i><span><b>Appearance</b><small>Choose your app theme</small></span><em>Light</em><strong>›</strong></button>
+      <button data-setting="help"><i class="setting-icon">?</i><span><b>Help &amp; Safety</b><small>Guides, safety tips, and support</small></span><strong>›</strong></button>
     </section>
   </main>
   <nav class="bottom-nav" aria-label="Main navigation">
@@ -111,6 +111,8 @@
     <button class="nav-item" data-page="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Profile</span></button>
   </nav>
   <div class="toast" id="toast" role="status"></div>
+
+  <dialog class="profile-dialog" id="profileDialog"><form method="dialog"><header><div><span id="profileDialogKicker">Profile</span><h2 id="profileDialogTitle">Edit profile</h2></div><button value="cancel" class="dialog-close" aria-label="Close">×</button></header><div id="profileDialogBody"></div><footer><button value="cancel" class="secondary">Cancel</button><button type="button" class="primary" id="profileDialogSave">Save</button></footer></form></dialog>
   <dialog class="image-spotlight" id="imageSpotlight" aria-label="Project image preview">
     <button class="spotlight-close" type="button" aria-label="Close image preview">×</button>
     <img id="spotlightImage" alt="">
