@@ -68,6 +68,9 @@ function renderBuildProject(){
  document.querySelector("#stepImage").src=p.hero.url;
  document.querySelector("#buildThumb").alt=p.title;
  document.querySelector("#stepImage").alt=p.title+" build reference";
+ document.querySelector("#spotlightImage").src=p.hero.url;
+ document.querySelector("#spotlightImage").alt=p.title;
+ document.querySelector("#spotlightCaption").textContent=p.title;
  document.querySelector("#buildId").textContent=p.id;
  document.querySelector("#buildTitle").textContent=p.title;
  document.querySelector("#buildDescription").textContent=p.description;
@@ -129,5 +132,10 @@ document.querySelector(".build-tabs").addEventListener("click",e=>{const b=e.tar
 document.querySelector("#buildTabContent").addEventListener("click",e=>{const b=e.target.closest("[data-jump-tab]");if(!b)return;buildTab=b.dataset.jumpTab;renderBuildTab();if(buildTab==="steps")renderBuildStep();window.scrollTo({top:0,behavior:"smooth"})});
 document.querySelector(".build-side").addEventListener("change",()=>{const boxes=[...document.querySelectorAll(".build-panel input[type=checkbox]")];document.querySelector("#checkCount").textContent=boxes.filter(x=>x.checked).length+"/"+boxes.length});
 document.querySelector("#buildSave").addEventListener("click",e=>{e.currentTarget.classList.toggle("saved");e.currentTarget.textContent=e.currentTarget.classList.contains("saved")?"♥":"♡"});
+const imageSpotlight=document.querySelector("#imageSpotlight");
+document.querySelector("#buildHero").addEventListener("click",()=>imageSpotlight.showModal());
+document.querySelector(".spotlight-close").addEventListener("click",()=>imageSpotlight.close());
+imageSpotlight.addEventListener("click",e=>{if(e.target===imageSpotlight)imageSpotlight.close()});
+
 
 loadProjects();
