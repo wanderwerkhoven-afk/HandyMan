@@ -59,7 +59,7 @@
     </section>
 
     <nav class="build-tabs" aria-label="Build sections">
-      <button class="active" data-build-tab="overview">Overview</button><button data-build-tab="steps">Steps</button><button data-build-tab="materials">Materials</button><button data-build-tab="tools">Tools</button><button data-build-tab="plans">Plans</button>
+      <button class="active" data-build-tab="overview">Overview</button><button data-build-tab="materials">Materials</button><button data-build-tab="tools">Tools</button><button data-build-tab="plans">Plans</button><button data-build-tab="steps">Build</button>
     </nav>
 
     <section class="build-tab-content" id="buildTabContent" aria-live="polite"></section>
@@ -79,8 +79,8 @@
         </article>
       </section>
       <aside class="build-side">
-        <article class="build-panel"><div class="panel-head"><h3>Cut list</h3><a id="sourceLink" target="_blank" rel="noopener">Source ↗</a></div><p>Exact dimensions stay tied to the verified source plan. HandyMan never invents missing measurements.</p><div class="cut-placeholder"><span>▱</span><b>Verified plan data</b></div></article>
-        <article class="build-panel"><div class="panel-head"><h3>Checklist</h3><span id="checkCount">0/4</span></div><label><input type="checkbox"> Review source plan</label><label><input type="checkbox"> Prepare materials</label><label><input type="checkbox"> Dry-fit pieces</label><label><input type="checkbox"> Check assembly for square</label></article>
+        <article class="build-panel step-focus"><span class="panel-eyebrow">Current stage</span><h3 id="stepSideTitle">Build task</h3><p id="stepSideCopy">Complete this stage before continuing.</p></article>
+        <article class="build-panel"><div class="panel-head"><h3>Stage checklist</h3><span id="checkCount">0/1</span></div><label><input type="checkbox" id="stageDone"> This stage is complete</label></article>
       </aside>
     </div>
 
